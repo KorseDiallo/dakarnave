@@ -14,5 +14,23 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('layout.index');
 });
+Route::get('/clients', function () {
+    return view('clients.index');
+});
+
+Route::get('/factures', function () {
+    return view('factures.index');
+});
+
+
+Route::get('/fieldOrders', function () {
+    return view('fieldOrders.index');
+});
+
+Route::get('/memos', function () {
+    return view('memos.index');
+});
+
+
