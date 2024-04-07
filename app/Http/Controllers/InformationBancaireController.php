@@ -12,7 +12,8 @@ class InformationBancaireController extends Controller
      */
     public function index()
     {
-        //
+        $informationsBancaires = InformationBancaire::all();
+        return view('informations_bancaires.index', compact('informationsBancaires'));
     }
 
     /**
@@ -20,7 +21,7 @@ class InformationBancaireController extends Controller
      */
     public function create()
     {
-        //
+        return view('informations_bancaires.create');
     }
 
     /**
@@ -28,7 +29,9 @@ class InformationBancaireController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $informationBancaire = new InformationBancaire($request->all());
+        $informationBancaire->save();
+        return redirect()->route('informations_bancaires.index')->with('success', 'Informations bancaires ajoutées avec succès.');
     }
 
     /**
@@ -36,7 +39,7 @@ class InformationBancaireController extends Controller
      */
     public function show(InformationBancaire $informationBancaire)
     {
-        //
+        return view('informations_bancaires.show', compact('informationBancaire'));
     }
 
     /**
@@ -44,7 +47,7 @@ class InformationBancaireController extends Controller
      */
     public function edit(InformationBancaire $informationBancaire)
     {
-        //
+        return view('informations_bancaires.edit', compact('informationBancaire'));
     }
 
     /**
@@ -52,7 +55,8 @@ class InformationBancaireController extends Controller
      */
     public function update(Request $request, InformationBancaire $informationBancaire)
     {
-        //
+        $informationBancaire->update($request->all());
+        return redirect()->route('informations_bancaires.index')->with('success', 'Informations bancaires mises à jour avec succès.');
     }
 
     /**
@@ -60,6 +64,7 @@ class InformationBancaireController extends Controller
      */
     public function destroy(InformationBancaire $informationBancaire)
     {
-        //
+        $informationBancaire->delete();
+        return redirect()->route('informations_bancaires.index')->with('success', 'Informations bancaires supprimées avec succès.');
     }
 }
