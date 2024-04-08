@@ -189,7 +189,7 @@
 
 						<li class="nav-item has-submenu">
 							<!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-							<a class="nav-link submenu-toggle active" href="#" data-bs-toggle="collapse" data-bs-target="#submenu-1" aria-expanded="false" aria-controls="submenu-1">
+							<a class="nav-link submenu-toggle" href="#" data-bs-toggle="collapse" data-bs-target="#submenu-1" aria-expanded="false" aria-controls="submenu-1">
 								<span class="nav-icon">
 									<!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
 									<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-card-list" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -210,7 +210,7 @@
 							<div id="submenu-1" class="collapse submenu submenu-1" data-bs-parent="#menu-accordion">
 								<ul class="submenu-list list-unstyled">
 									<li class="submenu-item"><a class="submenu-link" href="/factures">Listes factures</a></li>
-									<li class="submenu-item"><a class="submenu-link" href="#">Ajouter facture</a></li>
+									<li class="submenu-item"><a class="submenu-link" href="/factures/ajout-facture">Ajouter facture</a></li>
 
 								</ul>
 							</div>
@@ -239,7 +239,7 @@
 							<div id="submenu-2" class="collapse submenu submenu-2" data-bs-parent="#menu-accordion">
 								<ul class="submenu-list list-unstyled">
 									<li class="submenu-item"><a class="submenu-link" href="/fieldOrders">Listes field order</a></li>
-									<li class="submenu-item"><a class="submenu-link" href="#">Ajouter field order</a></li>
+									<li class="submenu-item"><a class="submenu-link" href="/fieldOrders/ajout-fieldOrders">Ajouter field order</a></li>
 
 								</ul>
 							</div>
@@ -268,7 +268,7 @@
 							<div id="submenu-3" class="collapse submenu submenu-3" data-bs-parent="#menu-accordion">
 								<ul class="submenu-list list-unstyled">
 									<li class="submenu-item"><a class="submenu-link" href="/memos">Listes memos</a></li>
-									<li class="submenu-item"><a class="submenu-link" href="#">Ajouter memo</a></li>
+									<li class="submenu-item"><a class="submenu-link" href="/memos/ajout-memo">Ajouter memo</a></li>
 
 								</ul>
 							</div>

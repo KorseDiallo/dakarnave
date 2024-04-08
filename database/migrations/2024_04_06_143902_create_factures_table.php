@@ -15,6 +15,8 @@ return new class extends Migration
         Schema::create('factures', function (Blueprint $table) {
             $table->id();
             $table->integer("numeroFacture");
+            $table->integer("numeroCommande");
+            $table->integer("reference");
             $table->date("debutTravaux");
             $table->date("finTravaux");
             $table->text("detailTravaux")->nullable();

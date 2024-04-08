@@ -14,12 +14,16 @@ return new class extends Migration
     {
         Schema::create('fiche_travails', function (Blueprint $table) {
             $table->id();
-            $table->integer("numeroCommande");
+            //$table->integer("numeroCommande");
             $table->string("ownerItem");
             $table->string("dknvItem");
             $table->enum("typeDemande",["ajout","modification","annueller"])->nullable();
             $table->string("titreElement");
             $table->text("elementsImpacter");
+            $table->date("dateSignaturePropriétaire");
+            $table->date("dateSignatureProductManager");
+
+
             $table->integer("prix");
             $table->string("tempLivraison")->nullable();
             $table->text("remarque")->nullable();

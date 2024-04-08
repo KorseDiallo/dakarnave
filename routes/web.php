@@ -23,14 +23,25 @@ Route::get('/clients', function () {
 Route::get('/factures', function () {
     return view('factures.index');
 });
-
+Route::get('/factures/ajout-facture', function () {
+    return view('factures.create');
+});
 
 Route::get('/fieldOrders', function () {
     return view('fieldOrders.index');
 });
 
+Route::get('/fieldOrders/ajout-fieldOrders', function () {
+    return view('fieldOrders.create');
+});
+
 Route::get('/memos', function () {
     return view('memos.index');
 });
+
+Route::get('/memos/ajout-memo', function () {
+    return view('memos.create');
+});
+
 
 

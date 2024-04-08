@@ -31,9 +31,9 @@
 									</select>
 							    </div>
 							    <div class="col-auto">						    
-								    <a class="btn app-btn-secondary" href="#">
+								    <a class="btn app-btn-secondary" href="/factures/ajout-facture">
 									    
-									    Ajouter client
+									    Ajouter une facture
 									</a>
 							    </div>
 						    </div><!--//row-->
