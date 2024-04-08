@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string("nom");
             $table->string("adresse");
             $table->string("telephone");
-            $table->string("email");
+            $table->string("email")->unique();
             $table->float("montantPlafond",20,5);
             $table->boolean("client")->nullable();
             $table->boolean("fournisseur")->nullable();
