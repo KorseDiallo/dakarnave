@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use App\Models\InformationBancaire;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -29,9 +30,29 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        $client = new Client($request->all());
-        $client->save();
-        return redirect()->route('clients.index')->with('success', 'Client ajouté avec succès.');
+        $client = new Client();
+        $client->raisonSocial=$request->raisonSocial;
+        $client->nom=$request->nom;
+        $client->adresse=$request->adresse;
+        $client->telephone=$request->telephone;
+        $client->email=$request->email;
+        $client->montantPlafond=$request->montantPlafond;
+        $client->email=$request->email;
+        $client->client=$request->has('client') ? 1 : 0; 
+        $client->fournisseur=$request->has('fournisseur') ? 1 : 0;
+        if($client->save()){
+            $informationBancaire= new InformationBancaire();
+            $informationBancaire->nomBanque=$request->nomBanque;
+            $informationBancaire->adresse=$request->adresse;
+            $informationBancaire->pays=$request->pays;
+            $informationBancaire->iban=$request->iban;
+            $informationBancaire->swift=$request->swift;
+            $informationBancaire->client_id=$client->id;
+            if( $informationBancaire->save()){
+                return redirect()->route('clients.index')->with('success', 'Client ajouté avec succès.');
+            }
+        }
+        
     }
 
     /**

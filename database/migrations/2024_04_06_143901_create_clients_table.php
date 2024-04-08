@@ -18,9 +18,9 @@ return new class extends Migration
             $table->string("adresse");
             $table->string("telephone");
             $table->string("email");
-            $table->float("montantPlafond");
-            $table->boolean("client");
-            $table->boolean("fournisseur");
+            $table->float("montantPlafond",20,5);
+            $table->boolean("client")->nullable();
+            $table->boolean("fournisseur")->nullable();
             $table->timestamps();
         });
     }

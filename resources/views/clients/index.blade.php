@@ -21,7 +21,7 @@
 							    </div><!--//col-->
 
 							    <div class="col-auto">						    
-								    <a class="btn app-btn-secondary" href="#">
+								    <a class="btn app-btn-secondary" href="{{route('clients.create')}}">
 									    
 									    Ajouter client
 									</a>
@@ -50,20 +50,30 @@
 												<th class="cell"></th>
 											</tr>
 										</thead>
+									
 										<tbody>
+											@php
+												$numero=1;
+											@endphp
+
+											@foreach($clients as $client)
 											<tr>
-												<td class="cell">#15346</td>
-												<td class="cell"><span class="truncate">Lorem ipsum dolor sit amet eget volutpat erat</span></td>
-												<td class="cell">John Sanders</td>
-												<td class="cell"><span>17 Oct</span><span class="note">2:16 PM</span></td>
-												<td class="cell"><a class="btn btn-success" href="#" style="color:white;">View</a></td>
+												<td class="cell">{{$numero}}</td>
+												<td class="cell"><span class="truncate">{{$client->nom}}</span></td>
+												<td class="cell">{{$client->email}}</td>
+												<td class="cell"><span class="note">{{$client->raisonSocial}}</span></td>
+												<td class="cell"><a class="btn btn-success" href="{{route('clients.show',$client->id)}}" style="color:white;">Voir Detail</a></td>
 												<td class="cell"><a class="btn btn-secondary" href="#" style="color:white;">Modifier</a></td>
 												<td class="cell"><a class="btn btn-danger" href="#" style="color:white;">Supprimer</a></td>
 
 											</tr>
-											
+											@php
+												$numero++;
+											@endphp
+											@endforeach
 		
 										</tbody>
+										
 									</table>
 						        </div><!--//table-responsive-->
 						       

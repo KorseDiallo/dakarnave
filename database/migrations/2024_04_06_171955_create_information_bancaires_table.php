@@ -15,10 +15,10 @@ return new class extends Migration
         Schema::create('information_bancaires', function (Blueprint $table) {
             $table->id();
             $table->string("nomBanque");
-            $table->string("adresse")->nullable();
-            $table->string("pays")->nullable();
+            $table->string("adresse");
+            $table->string("pays");
             $table->string("iban");
-            $table->string("swift")->nullable();
+            $table->string("swift");
             $table->foreignIdFor(Client::class)->constrained()->onDelete('cascade');
             $table->timestamps();
         });
