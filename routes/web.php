@@ -27,12 +27,12 @@ Route::get('/', function () {
 //     return view('clients.index');
 // });
 
-Route::get('/factures', function () {
-    return view('factures.index');
-});
-Route::get('/factures/ajout-facture', function () {
-    return view('factures.create');
-});
+// Route::get('/factures', function () {
+//     return view('factures.index');
+// });
+// Route::get('/factures/ajout-facture', function () {
+//     return view('factures.create');
+// });
 
 Route::get('/fieldOrders', function () {
     return view('fieldOrders.index');
@@ -76,15 +76,15 @@ Route::delete('/clients/{client}', [ClientController::class, 'destroy'])->name('
 
 /*routes pour factures*/
 
-// Route::get('/factures', [FactureController::class, 'index'])->name('factures.index');
-// Route::get('/factures/validated', [FactureController::class, 'validated_facture'])->name('factures.validated');
-// Route::get('/factures/invalidated', [FactureController::class, 'invalidated_facture'])->name('factures.invalidated');
-// Route::get('/factures/create', [FactureController::class, 'create'])->name('factures.create');
-// Route::post('/factures', [FactureController::class, 'store'])->name('factures.store');
-// Route::get('/factures/{facture}', [FactureController::class, 'show'])->name('factures.show');
-// Route::get('/factures/{facture}/edit', [FactureController::class, 'edit'])->name('factures.edit');
-// Route::put('/factures/{facture}', [FactureController::class, 'update'])->name('factures.update');
-// Route::delete('/factures/{facture}', [FactureController::class, 'destroy'])->name('factures.destroy');
+Route::get('/factures', [FactureController::class, 'index'])->name('factures.index');
+Route::get('/factures/validated', [FactureController::class, 'validated_facture'])->name('factures.validated');
+Route::get('/factures/invalidated', [FactureController::class, 'invalidated_facture'])->name('factures.invalidated');
+Route::get('/factures/create/{client}', [FactureController::class, 'create'])->name('factures.create');
+Route::post('/factures', [FactureController::class, 'store'])->name('factures.store');
+Route::get('/factures/{facture}', [FactureController::class, 'show'])->name('factures.show');
+Route::get('/factures/{facture}/edit', [FactureController::class, 'edit'])->name('factures.edit');
+Route::put('/factures/{facture}', [FactureController::class, 'update'])->name('factures.update');
+Route::delete('/factures/{facture}', [FactureController::class, 'destroy'])->name('factures.destroy');
 
 /*routes pour field order*/
 

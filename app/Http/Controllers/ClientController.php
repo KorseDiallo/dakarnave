@@ -65,7 +65,9 @@ class ClientController extends Controller
      */
     public function show(Client $client)
     {
-        return view('clients.show', compact('client'));
+        $infoBancaireClient = InformationBancaire::whereId($client->id)->first();
+
+        return view('clients.show', compact('client', 'infoBancaireClient'));
     }
 
     /**
