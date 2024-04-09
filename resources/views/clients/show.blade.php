@@ -147,9 +147,9 @@
 								<div class="item-data">{{$infoBancaireClient->swift}}</div>
 							</div><!--//col-->
 
-						</div><!--//row-->
+						</div>
 
-					</div><!--//app-card-body-->
+					</div>
 					<div class="app-card-footer p-4 mt-auto">
 						<a class="btn btn-success" href="{{route('factures.create', $client->id)}}">Créer Facture</a>
 					</div><!--//app-card-footer-->
