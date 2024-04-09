@@ -61,7 +61,7 @@
 							$numero=1;
 							@endphp
 
-							@foreach($clients as $client)
+							@forelse($clients as $client)
 							<tr>
 								<td class="cell">{{$numero}}</td>
 								<td class="cell"><span class="truncate">{{$client->nom}}</span></td>
@@ -83,7 +83,11 @@
 							@php
 							$numero++;
 							@endphp
-							@endforeach
+							@empty
+							<tr>
+								<td colspan="8" style="color:red;text-align:center;font-size:20px;">Pas De Client Inscrit Pour Le Moment!!!.</td>
+							</tr>
+							@endforelse
 
 						</tbody>
 

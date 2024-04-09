@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\FactureRequest;
+use App\Models\Client;
 use App\Models\Facture;
 use Illuminate\Http\Request;
 
@@ -10,8 +12,11 @@ class FactureController extends Controller
   
     public function index()
     {
-        $factures = Facture::all();
-        return view('factures.index', compact('factures'));
+        
+         $factureValiders = Facture::where('valider', true)->get();
+         $facturesNonValiders = Facture::where('valider',false)->get();
+         $facturesArchivers = Facture::where('is_deleted',true)->get();
+        return view('factures.index', compact('facturesNonValiders','factureValiders','facturesArchivers'));
     }
 
     public function validated_facture()
@@ -29,15 +34,28 @@ class FactureController extends Controller
     }
 
 
-    public function create()
+    public function create(Client $client)
     {
-        return view('factures.create');
+        return view('factures.create',compact('client'));
     }
 
 
-    public function store(Request $request)
+    public function store(Request $request,Client $client)
     {
-        $facture = new Facture($request->all());
+        
+        $facture = new Facture();
+        // $facture->numeroFacture=$request->numeroFacture;
+        $facture->debutTravaux=$request->debutTravaux;
+        $facture->finTravaux=$request->finTravaux;
+        $facture->detailTravaux=$request->detailTravaux;
+        $facture->montantBrut=$request->montantBrut;
+        $facture->reductionDiscussion=$request->reductionDiscussion;
+        $facture->reductionRabaisFlotte=$request->reductionRabaisFlotte;
+        $facture->reductionRabaisNavire=$request->reductionRabaisNavire;
+        $facture->langue=$request->langue;
+        $facture->devise=$request->devise;
+        $facture->valider=$request->has('valider') ? 1 : 0; 
+        $facture->client_id=$client->id; 
         $facture->save();
         return redirect()->route('factures.index')->with('success', 'Facture ajoutée avec succès.');
     }
