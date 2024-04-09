@@ -22,7 +22,7 @@ class FactureRequest extends FormRequest
     public function rules(): array
     {
         return [
-        'numeroFacture' => 'required|integer',
+       
         'debutTravaux' => 'required|date',
         'finTravaux' => 'required|date|after_or_equal:debutTravaux',
         'detailTravaux' => 'nullable|string',
@@ -39,8 +39,7 @@ class FactureRequest extends FormRequest
 
     public function messages(){
         return [
-        'numeroFacture.required' => 'Le champ Numéro de facture est requis.',
-        'numeroFacture.integer' => 'Le champ Numéro de facture doit être un entier.',
+       
         'debutTravaux.required' => 'Le champ Début des travaux est requis.',
         'debutTravaux.date' => 'Le champ Début des travaux doit être une date valide.',
         'finTravaux.required' => 'Le champ Fin des travaux est requis.',

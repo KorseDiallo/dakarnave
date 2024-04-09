@@ -40,7 +40,12 @@
 		</div><!--//table-utilities-->
 	</div><!--//col-auto-->
 </div><!--//row-->
+@if(session('success'))
+<div class="alert alert-success mt-3">
+	{{session('success')}}
+</div>
 
+@endif
 <nav id="orders-table-tab" class="orders-table-tab app-nav-tabs nav shadow-sm flex-column flex-sm-row mb-4">
 	<a class="flex-sm-fill text-sm-center nav-link active" id="orders-all-tab" data-bs-toggle="tab" href="#orders-all" role="tab" aria-controls="orders-all" aria-selected="true">Facture Valider</a>
 	<a class="flex-sm-fill text-sm-center nav-link" id="orders-paid-tab" data-bs-toggle="tab" href="#orders-paid" role="tab" aria-controls="orders-paid" aria-selected="false">Facture Non Valider</a>
@@ -155,8 +160,11 @@
 									@csrf
 									<td class="cell"><button type="submit" class="btn btn-secondary" style="color:white;">Valider</button></td>
 								</form>
-								<td class="cell"><a class="btn btn-secondary" href="#" style="color:white;">Modifier</a></td>
-								<td class="cell"><a class="btn btn-danger" href="#" style="color:white;">Archiver</a></td>
+								<td class="cell"><a class="btn btn-secondary" href="{{route('factures.edit',$facturesNonValider->id)}}" style="color:white;">Modifier</a></td>
+								<form method="post" action="{{ route('factures.archiver', $facturesNonValider->id) }}">
+									@csrf
+									<td class="cell"><button type="submit" class="btn btn-secondary" style="color:white;">Archiver</button></td>
+								</form>
 							</tr>
 							@php
 							$numero++;
@@ -203,7 +211,10 @@
 								<td class="cell">{{$facturesArchiver->finTravaux}}</td>
 								<td class="cell"><span class="note"></span>{{$facturesArchiver->detailTravaux}}</td>
 								<td class="cell"><span class="cell-data">16 Oct</span><span class="note">{{$facturesArchiver->montantBrut}}</span></td>
-								<td class="cell"><a class="btn btn-secondary" href="#" style="color:white;">Désarchiver</a></td>
+								<form method="post" action="{{ route('factures.desarchiver', $facturesArchiver->id) }}">
+									@csrf
+									<td class="cell"><button type="submit" class="btn btn-secondary" style="color:white;">Desarchiver</button></td>
+								</form>
 							</tr>
 							@php
 							$numero++;

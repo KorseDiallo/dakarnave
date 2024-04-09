@@ -82,6 +82,8 @@ Route::get('/factures/invalidated', [FactureController::class, 'invalidated_fact
 Route::get('/factures/create/{client}', [FactureController::class, 'create'])->name('factures.create');
 Route::post('/factures/create_facture/{client}', [FactureController::class, 'store'])->name('factures.store');
 Route::post('/factures/valider_facture/{facture}', [FactureController::class, 'validerFacture'])->name('factures.valider');
+Route::post('/factures/archiver/{facture}', [FactureController::class, 'archiver'])->name('factures.archiver');
+Route::post('/factures/desarchiver/{facture}', [FactureController::class, 'desarchiver'])->name('factures.desarchiver');
 Route::get('/factures/{facture}', [FactureController::class, 'show'])->name('factures.show');
 Route::get('/factures/{facture}/edit', [FactureController::class, 'edit'])->name('factures.edit');
 Route::put('/factures/{facture}', [FactureController::class, 'update'])->name('factures.update');

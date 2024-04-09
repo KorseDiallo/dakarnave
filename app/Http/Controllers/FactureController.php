@@ -14,7 +14,9 @@ class FactureController extends Controller
     {
         
          $factureValiders = Facture::where('valider', true)->get();
-         $facturesNonValiders = Facture::where('valider',false)->get();
+         $facturesNonValiders = Facture::where('valider',false)
+         ->where('is_deleted',false) ->get();
+        
          $facturesArchivers = Facture::where('is_deleted',true)->get();
         return view('factures.index', compact('facturesNonValiders','factureValiders','facturesArchivers'));
     }
@@ -39,6 +41,17 @@ class FactureController extends Controller
         return redirect()->route('factures.index')->with('success', 'Facture Validée Avec Succès.');
     }
 
+    public function archiver(Facture $facture){
+        $facture->is_deleted=true;
+        $facture->save();
+        return redirect()->route('factures.index')->with('success', 'Facture Archivée Avec Succès.');
+    }
+
+    public function desarchiver(Facture $facture){
+        $facture->is_deleted=false;
+        $facture->save();
+        return redirect()->route('factures.index')->with('success', 'Facture Archivée Avec Succès.');
+    }
 
     public function create(Client $client)
     {
@@ -46,11 +59,10 @@ class FactureController extends Controller
     }
 
 
-    public function store(Request $request,Client $client)
+    public function store(FactureRequest $request,Client $client)
     {
         
         $facture = new Facture();
-        // $facture->numeroFacture=$request->numeroFacture;
         $facture->debutTravaux=$request->debutTravaux;
         $facture->finTravaux=$request->finTravaux;
         $facture->detailTravaux=$request->detailTravaux;
