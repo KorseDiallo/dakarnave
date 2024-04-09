@@ -33,6 +33,12 @@ class FactureController extends Controller
 
     }
 
+    public function validerFacture(Facture $facture){
+        $facture->valider=true;
+        $facture->save();
+        return redirect()->route('factures.index')->with('success', 'Facture Validée Avec Succès.');
+    }
+
 
     public function create(Client $client)
     {

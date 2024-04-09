@@ -91,7 +91,7 @@
 							@endphp
 							@empty
 							<tr>
-								<td colspan="8" style="color:red;text-align:center;font-size:20px;">Aucune facture  validée trouvée!!!</td>
+								<td colspan="8" style="color:red;text-align:center;font-size:20px;">Aucune facture validée trouvée!!!</td>
 							</tr>
 							@endforelse
 
@@ -151,7 +151,10 @@
 								<td class="cell">{{$facturesNonValider->finTravaux}}</td>
 								<td class="cell"><span class="note">{{$facturesNonValider->detailTravaux}}</span></td>
 								<td class="cell"><span class="note">{{$facturesNonValider->montantBrut}}</span></td>
-								<td class="cell"><a class="btn btn-secondary" href="#" style="color:white;">Valider</a></td>
+								<form method="post" action="{{ route('factures.valider', $facturesNonValider->id) }}">
+									@csrf
+									<td class="cell"><button type="submit" class="btn btn-secondary" style="color:white;">Valider</button></td>
+								</form>
 								<td class="cell"><a class="btn btn-secondary" href="#" style="color:white;">Modifier</a></td>
 								<td class="cell"><a class="btn btn-danger" href="#" style="color:white;">Archiver</a></td>
 							</tr>
@@ -188,7 +191,7 @@
 							</tr>
 						</thead>
 						<tbody>
-						@php
+							@php
 							$numero=1;
 							@endphp
 
