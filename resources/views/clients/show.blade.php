@@ -7,7 +7,12 @@
 		<div class="section-intro">Voir Les Détails Du Client</div>
 	</div>
 
+	<div class="row ">
+		
+	</div>
+
 	<div class="row gy-4">
+		<div class="section-intro"><a href="{{route('clients.index')}}"> <-- Précedent</a></div>
 		<div class="col-xm-12 col-sm-12 col-lg-12">
 			<div class="app-card app-card-account shadow-sm d-flex flex-column align-items-start">
 				<div class="app-card-header p-3 border-bottom-0">
