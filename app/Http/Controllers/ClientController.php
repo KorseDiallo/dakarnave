@@ -16,9 +16,23 @@ class ClientController extends Controller
      */
     public function index()
     {
-        $clients = Client::all();
+
+        // $search = $request->searchClient;
+       
+        // if ($search) {
+        //     $clients = Client::where('nom', 'LIKE', '%' . $search . '%')->paginate(3);
+           
+        // } else {
+        //     $clients = Client::paginate(3);
+          
+        // }
+
+        $clients = Client::paginate(10);
+        
         return view('clients.index', compact('clients'));
     }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -33,31 +47,30 @@ class ClientController extends Controller
      */
     public function store(ClientRequest $request)
     {
-    // dd($request);
-       // $clientValider = $request->validated();
+        // dd($request);
+        // $clientValider = $request->validated();
         $client = new Client();
-        $client->raisonSocial=$request->raisonSocial;
-        $client->nom=$request->nom;
-        $client->adresse=$request->adresse;
-        $client->telephone=$request->telephone;
-        $client->email=$request->email;
-        $client->montantPlafond=$request->montantPlafond;
-        $client->email=$request->email;
-        $client->client=$request->has('client') ? 1 : 0; 
-        $client->fournisseur=$request->has('fournisseur') ? 1 : 0;
-        if($client->save()){
-            $informationBancaire= new InformationBancaire();
-            $informationBancaire->nomBanque=$request->nomBanque;
-            $informationBancaire->adresseBancaire=$request->adresseBancaire;
-            $informationBancaire->pays=$request->pays;
-            $informationBancaire->iban=$request->iban;
-            $informationBancaire->swift=$request->swift;
-            $informationBancaire->client_id=$client->id;
-            if( $informationBancaire->save()){
+        $client->raisonSocial = $request->raisonSocial;
+        $client->nom = $request->nom;
+        $client->adresse = $request->adresse;
+        $client->telephone = $request->telephone;
+        $client->email = $request->email;
+        $client->montantPlafond = $request->montantPlafond;
+        $client->email = $request->email;
+        $client->client = $request->has('client') ? 1 : 0;
+        $client->fournisseur = $request->has('fournisseur') ? 1 : 0;
+        if ($client->save()) {
+            $informationBancaire = new InformationBancaire();
+            $informationBancaire->nomBanque = $request->nomBanque;
+            $informationBancaire->adresseBancaire = $request->adresseBancaire;
+            $informationBancaire->pays = $request->pays;
+            $informationBancaire->iban = $request->iban;
+            $informationBancaire->swift = $request->swift;
+            $informationBancaire->client_id = $client->id;
+            if ($informationBancaire->save()) {
                 return redirect()->route('clients.index')->with('success', 'Client ajouté avec succès.');
             }
         }
-        
     }
 
     /**
@@ -84,31 +97,30 @@ class ClientController extends Controller
      */
     public function update(updateClientRequest $request, Client $client)
     {
-       
 
-    
-        $client->raisonSocial=$request->raisonSocial;
-        $client->nom=$request->nom;
-        $client->adresse=$request->adresse;
-        $client->telephone=$request->telephone;
-        $client->email=$request->email;
-        $client->montantPlafond=$request->montantPlafond;
-        $client->email=$request->email;
-        $client->client=$request->has('client') ? 1 : 0; 
-        $client->fournisseur=$request->has('fournisseur') ? 1 : 0;
-        if($client->save()){
-            $informationBancaire= new InformationBancaire();
-            $informationBancaire->nomBanque=$request->nomBanque;
-            $informationBancaire->adresseBancaire=$request->adresseBancaire;
-            $informationBancaire->pays=$request->pays;
-            $informationBancaire->iban=$request->iban;
-            $informationBancaire->swift=$request->swift;
-            $informationBancaire->client_id=$client->id;
-            if( $informationBancaire->save()){
+
+
+        $client->raisonSocial = $request->raisonSocial;
+        $client->nom = $request->nom;
+        $client->adresse = $request->adresse;
+        $client->telephone = $request->telephone;
+        $client->email = $request->email;
+        $client->montantPlafond = $request->montantPlafond;
+        $client->email = $request->email;
+        $client->client = $request->has('client') ? 1 : 0;
+        $client->fournisseur = $request->has('fournisseur') ? 1 : 0;
+        if ($client->save()) {
+            $informationBancaire = new InformationBancaire();
+            $informationBancaire->nomBanque = $request->nomBanque;
+            $informationBancaire->adresseBancaire = $request->adresseBancaire;
+            $informationBancaire->pays = $request->pays;
+            $informationBancaire->iban = $request->iban;
+            $informationBancaire->swift = $request->swift;
+            $informationBancaire->client_id = $client->id;
+            if ($informationBancaire->save()) {
                 return redirect()->route('clients.index')->with('success', 'Client modifié avec succès.');
             }
         }
-
     }
 
     /**
