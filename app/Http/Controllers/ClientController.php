@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\InformationBancaire;
 use App\Http\Requests\ClientRequest;
 use App\Http\Requests\updateClientRequest;
-
+use App\Models\Facture;
 
 class ClientController extends Controller
 {
@@ -79,8 +79,11 @@ class ClientController extends Controller
     public function show(Client $client)
     {
         $infoBancaireClient = InformationBancaire::where('client_id',$client->id)->first();
-      
-        return view('clients.show', compact('client', 'infoBancaireClient'));
+        $factures = Facture::where('client_id',$client->id)
+        ->where('valider',true)
+        ->get();
+
+        return view('clients.show', compact('client', 'infoBancaireClient', 'factures'));
     }
 
     /**
@@ -88,7 +91,8 @@ class ClientController extends Controller
      */
     public function edit(Client $client)
     {
-        $infoBancaireClient = InformationBancaire::whereId($client->id)->first();
+        $infoBancaireClient = InformationBancaire::where('client_id', $client->id)->first();
+
         return view('clients.edit', compact('client', 'infoBancaireClient'));
     }
 

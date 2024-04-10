@@ -183,6 +183,7 @@
 
 		<div style="overflow-y: auto; width: 1000px; height:350px">
 			<!--Debut de la card et de la boucle ici-->
+			@forelse($factures as $facture)
 			<div class="w-100 mt-5">
 				<div class="app-card app-card-account shadow-sm d-flex flex-column align-items-start">
 					<div class="app-card-header p-3 border-bottom-0">
@@ -207,11 +208,11 @@
 								<div class="col mb-2">
 									<div class="item-label d-flex justify-content-between">
 										<span class="item-label text-start"><strong>Numero Commande:</strong></span>
-										<span class="item-data text-end">15985</span>
+										<span class="item-data text-end">{{$facture->numeroCommande}}</span>
 									</div>
 									<div class="item-label d-flex justify-content-between">
 										<span class="item-label text-start"><strong>Reference:</strong></span>
-										<span class="item-data text-end">26547</span>
+										<span class="item-data text-end">{{$client->nom}}</span>
 									</div>
 
 								</div><!--//col-->
@@ -220,7 +221,7 @@
 							<div class="row align-items-center mb-2 w-50  mt-5">
 								<div class="item-label d-flex justify-content-between">
 									<span class="item-label text-start"><strong>Numéro Facture:</strong></span>
-									<span class="item-data text-end">021456</span>
+									<span class="item-data text-end">{{$facture->numeroFacture}}</span>
 								</div>
 							</div>
 
@@ -231,11 +232,11 @@
 								<div class="col">
 									<div class="item-label d-flex justify-content-between">
 										<span class="item-label text-start"><strong>Debut travaux:</strong></span>
-										<span class="item-data text-end">02/04/2024</span>
+										<span class="item-data text-end">{{$facture->debutTravaux}}</span>
 									</div>
 									<div class="item-label d-flex justify-content-between">
 										<span class="item-label text-start"><strong>Fin travaux:</strong></span>
-										<span class="item-data text-end">20/04/2024</span>
+										<span class="item-data text-end">{{$facture->finTravaux}}</span>
 									</div>
 
 								</div><!--//col-->
@@ -244,423 +245,63 @@
 								<div class="col">
 									<div class="item-label d-flex justify-content-between">
 										<span class="item-label text-start"><strong>Montant Brut:</strong></span>
-										<span class="item-data text-end">1.000.523.001 EUR</span>
+										<span class="item-data text-end">{{$facture->montantBrut}} EUR</span>
 									</div>
 									<div class="item-label d-flex justify-content-between">
 										<span class="item-label text-start"><strong>Reduction Discussion:</strong></span>
-										<span class="item-data text-end">1000 EUR</span>
+										<span class="item-data text-end">{{$facture->reductionDiscussion}} EUR</span>
 									</div>
 									<div class="item-label d-flex justify-content-between">
 										<span class="item-label text-start"><strong>Reduction Rabais Flott:</strong></span>
-										<span class="item-data text-end">200 EUR</span>
+										<span class="item-data text-end">{{$facture->reductionRabaisFlotte}} EUR</span>
 									</div>
 									<div class="item-label d-flex justify-content-between">
 										<span class="item-label text-start"><strong>Reduction Rabais Navire:</strong></span>
-										<span class="item-data text-end">500 EUR</span>
+										<span class="item-data text-end">{{$facture->reductionRabaisNavire}} EUR</span>
 									</div>
 								</div>
-
-
 							</div><!--//col-->
-
-
-
 						</div><!--//row-->
 						<div class="row   mb-5 w-50">
 							<div class="col mb-2">
 								<div class="item-label d-flex justify-content-between">
 									<span class="item-label text-start"><strong>Langue:</strong></span>
-									<span class="item-data text-end">Fr</span>
+									<span class="item-data text-end">{{$facture->reductionRabaisNavire}}</span>
 								</div>
 								<div class="item-label d-flex justify-content-between">
 									<span class="item-label text-start"><strong>Devise:</strong></span>
-									<span class="item-data text-end">EURO</span>
+									<span class="item-data text-end">{{$facture->devise}}</span>
 								</div>
 								<div class="item-label d-flex justify-content-between">
 									<span class="item-label text-start"><strong>Valider:</strong></span>
-									<span class="item-data text-end">NON</span>
+									<span class="item-data text-end">{{$facture->valider == true ? 'OUI' : 'NON'}}</span>
 								</div>
 
 							</div><!--//col-->
 						</div><!--//row-->
 
+						<div class="row   mb-5 w-50">
+						<div class="col mb-2">
+						<div class="item-label ">
+									<span class="item-label "><strong>Details Travaux:</strong></span>
+									<span class="item-data ">{{$facture->detailTravaux}}</span>
+								</div>
+						</div>
+						</div>
+
 					</div>
-
-
 				</div><!--//app-card-->
 			</div><!--//col-->
 
 			<!--Fin de la card et de la boucle ici-->
-
-
-			<div class="w-100 mt-5">
-				<div class="app-card app-card-account shadow-sm d-flex flex-column align-items-start">
-					<div class="app-card-header p-3 border-bottom-0">
-						<div class="row align-items-center gx-3">
-							<div class="col-auto">
-								<div class="app-icon-holder">
-									<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-credit-card" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-										<path fill-rule="evenodd" d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v1h14V4a1 1 0 0 0-1-1H2zm13 4H1v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V7z" />
-										<path d="M2 10a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1z" />
-									</svg>
-								</div><!--//icon-holder-->
-
-							</div><!--//col-->
-							<div class="col-auto">
-								<h4 class="app-card-title">Facture</h4>
-							</div><!--//col-->
-						</div><!--//row-->
-					</div><!--//app-card-header-->
-					<div class="app-card-body px-4 w-100">
-						<div class="item  py-3">
-							<div class="row   mb-5 w-50">
-								<div class="col mb-2">
-									<div class="item-label d-flex justify-content-between">
-										<span class="item-label text-start"><strong>Numero Commande:</strong></span>
-										<span class="item-data text-end">15985</span>
-									</div>
-									<div class="item-label d-flex justify-content-between">
-										<span class="item-label text-start"><strong>Reference:</strong></span>
-										<span class="item-data text-end">26547</span>
-									</div>
-
-								</div><!--//col-->
-
-
-
-
-
-
-
-							</div><!--//row-->
-
-							<div class="row align-items-center mb-2 w-50  mt-5">
-								<div class="item-label d-flex justify-content-between">
-									<span class="item-label text-start"><strong>Numéro Facture:</strong></span>
-									<span class="item-data text-end">021456</span>
-								</div>
-							</div>
-
-
-							<div class="row  align-items-center mb-3 ">
-
-
-								<div class="col">
-									<div class="item-label d-flex justify-content-between">
-										<span class="item-label text-start"><strong>Debut travaux:</strong></span>
-										<span class="item-data text-end">02/04/2024</span>
-									</div>
-									<div class="item-label d-flex justify-content-between">
-										<span class="item-label text-start"><strong>Fin travaux:</strong></span>
-										<span class="item-data text-end">20/04/2024</span>
-									</div>
-
-								</div><!--//col-->
-
-
-								<div class="col">
-									<div class="item-label d-flex justify-content-between">
-										<span class="item-label text-start"><strong>Montant Brut:</strong></span>
-										<span class="item-data text-end">1.000.523.001 EUR</span>
-									</div>
-									<div class="item-label d-flex justify-content-between">
-										<span class="item-label text-start"><strong>Reduction Discussion:</strong></span>
-										<span class="item-data text-end">1000 EUR</span>
-									</div>
-									<div class="item-label d-flex justify-content-between">
-										<span class="item-label text-start"><strong>Reduction Rabais Flott:</strong></span>
-										<span class="item-data text-end">200 EUR</span>
-									</div>
-									<div class="item-label d-flex justify-content-between">
-										<span class="item-label text-start"><strong>Reduction Rabais Navire:</strong></span>
-										<span class="item-data text-end">500 EUR</span>
-									</div>
-								</div>
-
-
-							</div><!--//col-->
-
-
-
-						</div><!--//row-->
-						<div class="row   mb-5 w-50">
-							<div class="col mb-2">
-								<div class="item-label d-flex justify-content-between">
-									<span class="item-label text-start"><strong>Langue:</strong></span>
-									<span class="item-data text-end">Fr</span>
-								</div>
-								<div class="item-label d-flex justify-content-between">
-									<span class="item-label text-start"><strong>Devise:</strong></span>
-									<span class="item-data text-end">EURO</span>
-								</div>
-								<div class="item-label d-flex justify-content-between">
-									<span class="item-label text-start"><strong>Valider:</strong></span>
-									<span class="item-data text-end">NON</span>
-								</div>
-							</div><!--//col-->
-						</div><!--//row-->
-
-					</div>
-
-
-				</div><!--//app-card-->
-			</div><!--//col-->
-
-			<div class="w-100 mt-5">
-				<div class="app-card app-card-account shadow-sm d-flex flex-column align-items-start">
-					<div class="app-card-header p-3 border-bottom-0">
-						<div class="row align-items-center gx-3">
-							<div class="col-auto">
-								<div class="app-icon-holder">
-									<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-credit-card" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-										<path fill-rule="evenodd" d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v1h14V4a1 1 0 0 0-1-1H2zm13 4H1v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V7z" />
-										<path d="M2 10a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1z" />
-									</svg>
-								</div><!--//icon-holder-->
-
-							</div><!--//col-->
-							<div class="col-auto">
-								<h4 class="app-card-title">Facture</h4>
-							</div><!--//col-->
-						</div><!--//row-->
-					</div><!--//app-card-header-->
-					<div class="app-card-body px-4 w-100">
-						<div class="item  py-3">
-							<div class="row   mb-5 w-50">
-								<div class="col mb-2">
-									<div class="item-label d-flex justify-content-between">
-										<span class="item-label text-start"><strong>Numero Commande:</strong></span>
-										<span class="item-data text-end">15985</span>
-									</div>
-									<div class="item-label d-flex justify-content-between">
-										<span class="item-label text-start"><strong>Reference:</strong></span>
-										<span class="item-data text-end">26547</span>
-									</div>
-
-								</div><!--//col-->
-
-
-
-
-
-
-
-							</div><!--//row-->
-
-							<div class="row align-items-center mb-2 w-50  mt-5">
-								<div class="item-label d-flex justify-content-between">
-									<span class="item-label text-start"><strong>Numéro Facture:</strong></span>
-									<span class="item-data text-end">021456</span>
-								</div>
-							</div>
-
-
-							<div class="row  align-items-center mb-3 ">
-
-
-								<div class="col">
-									<div class="item-label d-flex justify-content-between">
-										<span class="item-label text-start"><strong>Debut travaux:</strong></span>
-										<span class="item-data text-end">02/04/2024</span>
-									</div>
-									<div class="item-label d-flex justify-content-between">
-										<span class="item-label text-start"><strong>Fin travaux:</strong></span>
-										<span class="item-data text-end">20/04/2024</span>
-									</div>
-
-								</div><!--//col-->
-
-
-								<div class="col">
-									<div class="item-label d-flex justify-content-between">
-										<span class="item-label text-start"><strong>Montant Brut:</strong></span>
-										<span class="item-data text-end">1.000.523.001 EUR</span>
-									</div>
-									<div class="item-label d-flex justify-content-between">
-										<span class="item-label text-start"><strong>Reduction Discussion:</strong></span>
-										<span class="item-data text-end">1000 EUR</span>
-									</div>
-									<div class="item-label d-flex justify-content-between">
-										<span class="item-label text-start"><strong>Reduction Rabais Flott:</strong></span>
-										<span class="item-data text-end">200 EUR</span>
-									</div>
-									<div class="item-label d-flex justify-content-between">
-										<span class="item-label text-start"><strong>Reduction Rabais Navire:</strong></span>
-										<span class="item-data text-end">500 EUR</span>
-									</div>
-								</div>
-
-
-							</div><!--//col-->
-
-
-
-						</div><!--//row-->
-						<div class="row   mb-5 w-50">
-							<div class="col mb-2">
-								<div class="item-label d-flex justify-content-between">
-									<span class="item-label text-start"><strong>Langue:</strong></span>
-									<span class="item-data text-end">Fr</span>
-								</div>
-								<div class="item-label d-flex justify-content-between">
-									<span class="item-label text-start"><strong>Devise:</strong></span>
-									<span class="item-data text-end">EURO</span>
-								</div>
-								<div class="item-label d-flex justify-content-between">
-									<span class="item-label text-start"><strong>Valider:</strong></span>
-									<span class="item-data text-end">NON</span>
-								</div>
-
-							</div><!--//col-->
-
-
-
-
-
-
-
-						</div><!--//row-->
-
-					</div>
-
-
-				</div><!--//app-card-->
-			</div><!--//col-->
-
-
-			<div class="w-100 mt-5">
-				<div class="app-card app-card-account shadow-sm d-flex flex-column align-items-start">
-					<div class="app-card-header p-3 border-bottom-0">
-						<div class="row align-items-center gx-3">
-							<div class="col-auto">
-								<div class="app-icon-holder">
-									<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-credit-card" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-										<path fill-rule="evenodd" d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v1h14V4a1 1 0 0 0-1-1H2zm13 4H1v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V7z" />
-										<path d="M2 10a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1z" />
-									</svg>
-								</div><!--//icon-holder-->
-
-							</div><!--//col-->
-							<div class="col-auto">
-								<h4 class="app-card-title">Facture</h4>
-							</div><!--//col-->
-						</div><!--//row-->
-					</div><!--//app-card-header-->
-					<div class="app-card-body px-4 w-100">
-						<div class="item  py-3">
-							<div class="row   mb-5 w-50">
-								<div class="col mb-2">
-									<div class="item-label d-flex justify-content-between">
-										<span class="item-label text-start"><strong>Numero Commande:</strong></span>
-										<span class="item-data text-end">15985</span>
-									</div>
-									<div class="item-label d-flex justify-content-between">
-										<span class="item-label text-start"><strong>Reference:</strong></span>
-										<span class="item-data text-end">26547</span>
-									</div>
-
-								</div><!--//col-->
-
-
-
-
-
-
-
-							</div><!--//row-->
-
-							<div class="row align-items-center mb-2 w-50  mt-5">
-								<div class="item-label d-flex justify-content-between">
-									<span class="item-label text-start"><strong>Numéro Facture:</strong></span>
-									<span class="item-data text-end">021456</span>
-								</div>
-							</div>
-
-
-							<div class="row  align-items-center mb-3 ">
-
-
-								<div class="col">
-									<div class="item-label d-flex justify-content-between">
-										<span class="item-label text-start"><strong>Debut travaux:</strong></span>
-										<span class="item-data text-end">02/04/2024</span>
-									</div>
-									<div class="item-label d-flex justify-content-between">
-										<span class="item-label text-start"><strong>Fin travaux:</strong></span>
-										<span class="item-data text-end">20/04/2024</span>
-									</div>
-
-								</div><!--//col-->
-
-
-								<div class="col">
-									<div class="item-label d-flex justify-content-between">
-										<span class="item-label text-start"><strong>Montant Brut:</strong></span>
-										<span class="item-data text-end">1.000.523.001 EUR</span>
-									</div>
-									<div class="item-label d-flex justify-content-between">
-										<span class="item-label text-start"><strong>Reduction Discussion:</strong></span>
-										<span class="item-data text-end">1000 EUR</span>
-									</div>
-									<div class="item-label d-flex justify-content-between">
-										<span class="item-label text-start"><strong>Reduction Rabais Flott:</strong></span>
-										<span class="item-data text-end">200 EUR</span>
-									</div>
-									<div class="item-label d-flex justify-content-between">
-										<span class="item-label text-start"><strong>Reduction Rabais Navire:</strong></span>
-										<span class="item-data text-end">500 EUR</span>
-									</div>
-								</div>
-
-
-							</div><!--//col-->
-
-
-
-						</div><!--//row-->
-						<div class="row   mb-5 w-50">
-							<div class="col mb-2">
-								<div class="item-label d-flex justify-content-between">
-									<span class="item-label text-start"><strong>Langue:</strong></span>
-									<span class="item-data text-end">Fr</span>
-								</div>
-								<div class="item-label d-flex justify-content-between">
-									<span class="item-label text-start"><strong>Devise:</strong></span>
-									<span class="item-data text-end">EURO</span>
-								</div>
-								<div class="item-label d-flex justify-content-between">
-									<span class="item-label text-start"><strong>Valider:</strong></span>
-									<span class="item-data text-end">NON</span>
-								</div>
-
-							</div><!--//col-->
-						</div><!--//row-->
-
-					</div>
-
-
-				</div><!--//app-card-->
-			</div><!--//col-->
-
-
-
-
+			@empty
+			<div class="w-100 mt-5" style="text-align: center;">
+				<h3>Aucune facutre pour l'instant</h3>
+			</div>
+			@endforelse
 		</div>
-
-
-
-
-
-
 	</div>
-
-
 </div><!--//table-responsive-->
-
-
-
-
-
 
 
 @endsection
