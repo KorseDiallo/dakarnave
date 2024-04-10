@@ -14,9 +14,9 @@ return new class extends Migration
     {
         Schema::create('factures', function (Blueprint $table) {
             $table->id();
-            $table->integer("numeroFacture");
-            $table->integer("numeroCommande");
-            $table->integer("reference");
+            $table->string("numeroFacture");
+            // $table->integer("numeroCommande");
+            // $table->integer("reference");
             $table->date("debutTravaux");
             $table->date("finTravaux");
             $table->text("detailTravaux")->nullable();
@@ -27,6 +27,7 @@ return new class extends Migration
             $table->enum("langue",["fr","us"]);
             $table->enum("devise",["fcfa","euro","dollar"]);
             $table->boolean("valider");
+            $table->boolean("is_deleted")->default(false);
             $table->foreignIdFor(Client::class)->constrained()->onDelete('cascade');
             $table->timestamps();
         });

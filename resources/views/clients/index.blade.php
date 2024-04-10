@@ -62,12 +62,13 @@
 							$numero=1;
 							@endphp
 
-							@foreach($clients as $client)
+							@forelse($clients as $client)
 							<tr>
 								<td class="cell">{{$numero}}</td>
 								<td class="cell"><span class="truncate">{{$client->nom}}</span></td>
 								<td class="cell">{{$client->email}}</td>
 								<td class="cell"><span class="note">{{$client->raisonSocial}}</span></td>
+								<td class="cell"><a class="btn btn-secondary" href="{{route('factures.create', $client->id)}}" style="color:white;">Créer Facture</a></td>
 								<td class="cell"><a class="btn btn-success" href="{{route('clients.show',$client->id)}}" style="color:white;">Voir Detail</a></td>
 								<td class="cell"><a class="btn btn-secondary" href="{{route('clients.edit',$client->id)}}" style="color:white;">Modifier</a></td>
 								<td class="cell">
@@ -76,14 +77,18 @@
                                         @method('DELETE')
                                         <button class="btn btn-danger" type="submit" style="color:white;">Supprimer</button>
                                     </form>
-
+									
 								</td>
 
 							</tr>
 							@php
 							$numero++;
 							@endphp
-							@endforeach
+							@empty
+							<tr>
+								<td colspan="8" style="color:red;text-align:center;font-size:20px;">Pas De Client Inscrit Pour Le Moment!!!.</td>
+							</tr>
+							@endforelse
 
 						</tbody>
 
