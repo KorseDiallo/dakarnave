@@ -49,7 +49,7 @@
 		
       </div>
 	  <div class="col form-radio">
-        <input class="form-control-input" type="radio" id="autoSizingCheck2" name="typeDemande" value="annueller">
+        <input class="form-control-input" type="radio" id="autoSizingCheck2" name="typeDemande" value="annuller">
         <label class="form-check-label" for="autoSizingCheck2">
           Conselation
         </label>

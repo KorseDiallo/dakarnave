@@ -17,9 +17,9 @@ return new class extends Migration
             //$table->integer("numeroCommande");
             $table->string("ownerItem");
             $table->string("dknvItem");
-            $table->enum("typeDemande",["ajout","modification","annueller"])->nullable();
+            $table->enum("typeDemande",["ajout","modification","annuller"])->nullable();
             $table->string("titreElement");
-            $table->text("elementsImpacter");
+            $table->text("observation")->nullable();
             $table->date("dateSignaturePropriétaire");
             $table->date("dateSignatureProductManager");
 
@@ -27,6 +27,7 @@ return new class extends Migration
             $table->integer("prix");
             $table->string("tempLivraison")->nullable();
             $table->text("remarque")->nullable();
+            $table->boolean("valider");
             $table->foreignIdFor(Facture::class)->constrained()->onDelete('cascade');
             $table->timestamps();
         });
