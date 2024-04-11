@@ -181,7 +181,7 @@
 
 
 
-		<div style="overflow-y: auto; width: 1000px; height:350px">
+		<div style="overflow-y: auto; width: 100%; height:350px">
 			<!--Debut de la card et de la boucle ici-->
 			@forelse($factures as $facture)
 			<div class="w-100 mt-5">
@@ -245,19 +245,19 @@
 								<div class="col">
 									<div class="item-label d-flex justify-content-between">
 										<span class="item-label text-start"><strong>Montant Brut:</strong></span>
-										<span class="item-data text-end">{{$facture->montantBrut}} EUR</span>
+										<span class="item-data text-end">{{$facture->montantBrut}} {{$facture->devise}}</span>
 									</div>
 									<div class="item-label d-flex justify-content-between">
 										<span class="item-label text-start"><strong>Reduction Discussion:</strong></span>
-										<span class="item-data text-end">{{$facture->reductionDiscussion}} EUR</span>
+										<span class="item-data text-end">{{$facture->reductionDiscussion}} {{$facture->devise}}</span>
 									</div>
 									<div class="item-label d-flex justify-content-between">
 										<span class="item-label text-start"><strong>Reduction Rabais Flott:</strong></span>
-										<span class="item-data text-end">{{$facture->reductionRabaisFlotte}} EUR</span>
+										<span class="item-data text-end">{{$facture->reductionRabaisFlotte}} {{$facture->devise}}</span>
 									</div>
 									<div class="item-label d-flex justify-content-between">
 										<span class="item-label text-start"><strong>Reduction Rabais Navire:</strong></span>
-										<span class="item-data text-end">{{$facture->reductionRabaisNavire}} EUR</span>
+										<span class="item-data text-end">{{$facture->reductionRabaisNavire}} {{$facture->devise}}</span>
 									</div>
 								</div>
 							</div><!--//col-->

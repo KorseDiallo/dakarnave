@@ -10,7 +10,7 @@
 		<div class="app-card app-card-settings shadow-sm p-4">
 
 			<div class="app-card-body">
-				<form class="settings-form" method="post" action="{{route('fiches_travails.update', $facture->id)}}">
+				<form class="settings-form" method="post" action="{{route('factures.update', $facture->id)}}">
 					@csrf
 					@method('put')
 					<div class="row mb-3">

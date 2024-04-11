@@ -94,8 +94,17 @@ class FactureController extends Controller
 
     public function update(Request $request, Facture $facture)
     {
-        dd($request->all());
-        $facture->update($request->all());
+        $facture->debutTravaux=$request->debutTravaux;
+        $facture->finTravaux=$request->finTravaux;
+        $facture->detailTravaux=$request->detailTravaux;
+        $facture->montantBrut=$request->montantBrut;
+        $facture->reductionDiscussion=$request->reductionDiscussion;
+        $facture->reductionRabaisFlotte=$request->reductionRabaisFlotte;
+        $facture->reductionRabaisNavire=$request->reductionRabaisNavire;
+        $facture->langue=$request->langue;
+        $facture->devise=$request->devise;
+        $facture->valider=$request->has('valider') ? 1 : 0; 
+        $facture->update();
         return redirect()->route('factures.index')->with('success', 'Facture mise à jour avec succès.');
     }
 
