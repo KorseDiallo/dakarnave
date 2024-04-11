@@ -28,6 +28,7 @@ return new class extends Migration
             $table->string("tempLivraison")->nullable();
             $table->text("remarque")->nullable();
             $table->boolean("valider");
+            $table->boolean("is_deleted")->default(false);
             $table->foreignIdFor(Facture::class)->constrained()->onDelete('cascade');
             $table->timestamps();
         });

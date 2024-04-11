@@ -6,6 +6,7 @@ use App\Http\Controllers\MemoController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\FactureController;
 use App\Http\Controllers\CommandeController;
+use App\Http\Controllers\FicheTravailController;
 use App\Http\Controllers\InformationBancaireController;
 
 /*
@@ -92,13 +93,13 @@ Route::delete('/factures/{facture}', [FactureController::class, 'destroy'])->nam
 
 /*routes pour field order*/
 
-// Route::get('/fiches_travails', [CommandeController::class, 'index'])->name('fiches_travails.index');
-// Route::get('/fiches_travails/create', [CommandeController::class, 'create'])->name('fiches_travails.create');
-// Route::post('/fiches_travails', [CommandeController::class, 'store'])->name('fiches_travails.store');
-// Route::get('/fiches_travails/{ficheTravail}', [CommandeController::class, 'show'])->name('fiches_travails.show');
-// Route::get('/fiches_travails/{ficheTravail}/edit', [CommandeController::class, 'edit'])->name('fiches_travails.edit');
-// Route::put('/fiches_travails/{ficheTravail}', [CommandeController::class, 'update'])->name('fiches_travails.update');
-// Route::delete('/fiches_travails/{ficheTravail}', [CommandeController::class, 'destroy'])->name('fiches_travails.destroy');
+Route::get('/fiches_travails', [FicheTravailController::class, 'index'])->name('fiches_travails.index');
+Route::get('/fiches_travails/create', [FicheTravailController::class, 'create'])->name('fiches_travails.create');
+Route::post('/fiches_travails', [FicheTravailController::class, 'store'])->name('fiches_travails.store');
+Route::get('/fiches_travails/{ficheTravail}', [FicheTravailController::class, 'show'])->name('fiches_travails.show');
+Route::get('/fiches_travails/{ficheTravail}/edit', [FicheTravailController::class, 'edit'])->name('fiches_travails.edit');
+Route::put('/fiches_travails/{ficheTravail}', [FicheTravailController::class, 'update'])->name('fiches_travails.update');
+Route::delete('/fiches_travails/{ficheTravail}', [FicheTravailController::class, 'destroy'])->name('fiches_travails.destroy');
 
 /*routes pour memos*/
 

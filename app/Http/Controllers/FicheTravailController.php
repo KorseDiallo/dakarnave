@@ -6,7 +6,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Fiche_travail;
 
-class CommandeController extends Controller
+class FicheTravailController extends Controller
 {
     /**
      * Display a listing of the resource.
