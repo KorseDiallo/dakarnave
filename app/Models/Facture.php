@@ -34,4 +34,9 @@ class Facture extends Model
     {
         return $this->belongsTo(Client::class);
     }
+
+    public function ficheTravails()
+    {
+        return $this->hasMany(Fiche_travail::class);
+    }
 }

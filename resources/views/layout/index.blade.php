@@ -209,7 +209,7 @@
 							</a><!--//nav-link-->
 							<div id="submenu-1" class="collapse submenu submenu-1" data-bs-parent="#menu-accordion">
 								<ul class="submenu-list list-unstyled">
-									<li class="submenu-item"><a class="submenu-link" href="/factures">Listes factures</a></li>
+									<li class="submenu-item"><a class="submenu-link" href="{{route('factures.index')}}">Listes factures</a></li>
 									<li class="submenu-item"><a class="submenu-link" href="{{route('clients.index')}}">Ajouter facture</a></li>
 
 								</ul>
@@ -238,8 +238,8 @@
 							</a><!--//nav-link-->
 							<div id="submenu-2" class="collapse submenu submenu-2" data-bs-parent="#menu-accordion">
 								<ul class="submenu-list list-unstyled">
-									<li class="submenu-item"><a class="submenu-link" href="/fieldOrders">Listes field order</a></li>
-									<li class="submenu-item"><a class="submenu-link" href="/fieldOrders/ajout-fieldOrders">Ajouter field order</a></li>
+									<li class="submenu-item"><a class="submenu-link" href="{{route('fiches_travails.index')}}">Listes field order</a></li>
+									<li class="submenu-item"><a class="submenu-link" href="{{route('factures.index')}}">Ajouter field order</a></li>
 
 								</ul>
 							</div>

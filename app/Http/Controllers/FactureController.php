@@ -61,6 +61,7 @@ class FactureController extends Controller
 
     public function store(FactureRequest $request,Client $client)
     {
+       
         
         $facture = new Facture();
         $facture->debutTravaux=$request->debutTravaux;
@@ -93,6 +94,7 @@ class FactureController extends Controller
 
     public function update(Request $request, Facture $facture)
     {
+        dd($request->all());
         $facture->update($request->all());
         return redirect()->route('factures.index')->with('success', 'Facture mise à jour avec succès.');
     }
