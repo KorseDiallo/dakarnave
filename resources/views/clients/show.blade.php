@@ -266,7 +266,7 @@
 							<div class="col mb-2">
 								<div class="item-label d-flex justify-content-between">
 									<span class="item-label text-start"><strong>Langue:</strong></span>
-									<span class="item-data text-end">{{$facture->reductionRabaisNavire}}</span>
+									<span class="item-data text-end">{{$facture->langue}}</span>
 								</div>
 								<div class="item-label d-flex justify-content-between">
 									<span class="item-label text-start"><strong>Devise:</strong></span>

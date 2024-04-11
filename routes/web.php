@@ -6,6 +6,7 @@ use App\Http\Controllers\MemoController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\FactureController;
 use App\Http\Controllers\CommandeController;
+use App\Http\Controllers\FicheTravailController;
 use App\Http\Controllers\InformationBancaireController;
 
 /*
@@ -34,13 +35,13 @@ Route::get('/', function () {
 //     return view('factures.create');
 // });
 
-Route::get('/fieldOrders', function () {
-    return view('fieldOrders.index');
-});
+// Route::get('/fieldOrders', function () {
+//     return view('fieldOrders.index');
+// });
 
-Route::get('/fieldOrders/ajout-fieldOrders', function () {
-    return view('fieldOrders.create');
-});
+// Route::get('/fieldOrders/ajout-fieldOrders', function () {
+//     return view('fieldOrders.create');
+// });
 
 Route::get('/memos', function () {
     return view('memos.index');
@@ -92,13 +93,17 @@ Route::delete('/factures/{facture}', [FactureController::class, 'destroy'])->nam
 
 /*routes pour field order*/
 
-// Route::get('/fiches_travails', [CommandeController::class, 'index'])->name('fiches_travails.index');
-// Route::get('/fiches_travails/create', [CommandeController::class, 'create'])->name('fiches_travails.create');
-// Route::post('/fiches_travails', [CommandeController::class, 'store'])->name('fiches_travails.store');
-// Route::get('/fiches_travails/{ficheTravail}', [CommandeController::class, 'show'])->name('fiches_travails.show');
-// Route::get('/fiches_travails/{ficheTravail}/edit', [CommandeController::class, 'edit'])->name('fiches_travails.edit');
-// Route::put('/fiches_travails/{ficheTravail}', [CommandeController::class, 'update'])->name('fiches_travails.update');
-// Route::delete('/fiches_travails/{ficheTravail}', [CommandeController::class, 'destroy'])->name('fiches_travails.destroy');
+Route::get('/fiches_travails', [FicheTravailController::class, 'index'])->name('fiches_travails.index');
+Route::get('/fiches_travails/create/{facture}', [FicheTravailController::class, 'create'])->name('fiches_travails.create');
+Route::post('/fiches_travails/{facture}', [FicheTravailController::class, 'store'])->name('fiches_travails.store');
+Route::post('/fiches_travails/valider_facture/{fichestravails}', [FicheTravailController::class, 'validerFicheTravail'])->name('fiches_travails.valider');
+Route::post('/fiches_travails/archiver/{fichestravails}', [FicheTravailController::class, 'archiver'])->name('fiches_travails.archiver');
+Route::post('/fiches_travails/desarchiver/{fichestravails}', [FicheTravailController::class, 'desarchiver'])->name('fiches_travails.desarchiver');
+Route::get('/fiches_travails/{ficheTravail}', [FicheTravailController::class, 'show'])->name('fiches_travails.show');
+Route::get('/fiches_travails/{ficheTravail}/edit', [FicheTravailController::class, 'edit'])->name('fiches_travails.edit');
+Route::put('/fiches_travails/{ficheTravail}', [FicheTravailController::class, 'update'])->name('fiches_travails.update');
+Route::delete('/fiches_travails/{ficheTravail}', [FicheTravailController::class, 'destroy'])->name('fiches_travails.destroy');
+
 
 /*routes pour memos*/
 
