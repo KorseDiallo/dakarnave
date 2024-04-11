@@ -14,12 +14,11 @@ return new class extends Migration
     {
         Schema::create('memos', function (Blueprint $table) {
             $table->id();
-          //  $table->date("debutReparation");
             $table->date("amarrageNavire");
             $table->text("owner");
-
             $table->date("desamarrageNavire");
-           // $table->date("finReparation");
+            $table->boolean("valider");
+            $table->boolean("is_deleted")->default(false);
             $table->foreignIdFor(Fiche_travail::class)->constrained()->onDelete('cascade');
             $table->timestamps();
         });

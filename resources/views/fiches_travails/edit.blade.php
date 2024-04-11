@@ -4,7 +4,7 @@
 <div class="row g-4 settings-section">
 	<div class="col-12 col-md-4">
 		<h3 class="section-title">Fiche de travail</h3>
-		<div class="section-intro">Formulaire d'ajout d'une fiche de travail</div>
+		<div class="section-intro">Formulaire De Modification d'une fiche de travail</div>
 	</div>
 	<div class="col-12 col-md-8">
 		<div class="app-card app-card-settings shadow-sm p-4">
@@ -143,7 +143,7 @@
 						<label class="form-check-label" for="settings-switch-3">Valider</label>
 					</div>
 
-					<button type="submit" class="btn app-btn-primary"> Creer une fiche</button>
+					<button type="submit" class="btn app-btn-primary"> Modifier une fiche</button>
 				</form>
 			</div><!--//app-card-body-->
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Fiche_travail;
 use App\Models\Memo;
 use Illuminate\Http\Request;
 
@@ -12,24 +13,53 @@ class MemoController extends Controller
      */
     public function index()
     {
-        $memos = Memo::all();
-        return view('memos.index', compact('memos'));
+        $memoValiders = Memo::where('valider', true)->get();
+        $memoNonValiders = Memo::where('valider',false)
+        ->where('is_deleted',false) ->get();
+       
+        $memoArchivers = Memo::where('is_deleted',true)->get();
+        return view('memos.index', compact('memoValiders','memoNonValiders','memoArchivers'));
     }
+
+    public function validerMemo(Memo $memo){
+       
+        $memo->valider=true;
+        $memo->save();
+        return back()->with('success', 'Memo Validé Avec Succès.');
+    }
+
+    public function archiver(Memo $memo){
+        $memo->is_deleted=true;
+        $memo->save();
+        return back()->with('success', 'Memo Archivé Avec Succès.');
+    }
+
+    public function desarchiver(Memo $memo){
+        $memo->is_deleted=false;
+        $memo->save();
+        return redirect()->route('memos.index')->with('success', 'Memo Archivé Avec Succès.');
+    }
+
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Fiche_travail $ficheTravail)
     {
-        return view('memos.create');
+        return view('memos.create',compact('ficheTravail'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request,Fiche_travail $ficheTravail)
     {
-        $memo = new Memo($request->all());
+        $memo = new Memo();
+        $memo->amarrageNavire=$request->amarrageNavire;
+        $memo->owner=$request->owner;
+        $memo->desamarrageNavire=$request->desamarrageNavire;
+        $memo->valider=$request->has('valider') ? 1 : 0;
+        $memo->fiche_travail_id=$ficheTravail->id; 
         $memo->save();
         return redirect()->route('memos.index')->with('success', 'Mémo ajouté avec succès.');
     }
@@ -55,7 +85,10 @@ class MemoController extends Controller
      */
     public function update(Request $request, Memo $memo)
     {
-        $memo->update($request->all());
+        $memo->amarrageNavire=$request->amarrageNavire;
+        $memo->desamarrageNavire=$request->desamarrageNavire;
+        $memo->owner=$request->owner;
+        $memo->update();
         return redirect()->route('memos.index')->with('success', 'Mémo mis à jour avec succès.');
     }
 

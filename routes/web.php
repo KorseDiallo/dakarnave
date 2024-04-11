@@ -43,13 +43,13 @@ Route::get('/', function () {
 //     return view('fieldOrders.create');
 // });
 
-Route::get('/memos', function () {
-    return view('memos.index');
-});
+// Route::get('/memos', function () {
+//     return view('memos.index');
+// });
 
-Route::get('/memos/ajout-memo', function () {
-    return view('memos.create');
-});
+// Route::get('/memos/ajout-memo', function () {
+//     return view('memos.create');
+// });
 
 // Route::get('/clients/ajout-client', function () {
 //     return view('clients.create');
@@ -107,13 +107,16 @@ Route::delete('/fiches_travails/{ficheTravail}', [FicheTravailController::class,
 
 /*routes pour memos*/
 
-// Route::get('/memos', [MemoController::class, 'index'])->name('memos.index');
-// Route::get('/memos/create', [MemoController::class, 'create'])->name('memos.create');
-// Route::post('/memos', [MemoController::class, 'store'])->name('memos.store');
-// Route::get('/memos/{memo}', [MemoController::class, 'show'])->name('memos.show');
-// Route::get('/memos/{memo}/edit', [MemoController::class, 'edit'])->name('memos.edit');
-// Route::put('/memos/{memo}', [MemoController::class, 'update'])->name('memos.update');
-// Route::delete('/memos/{memo}', [MemoController::class, 'destroy'])->name('memos.destroy');
+Route::get('/memos', [MemoController::class, 'index'])->name('memos.index');
+Route::get('/memos/create/{ficheTravail}', [MemoController::class, 'create'])->name('memos.create');
+Route::post('/memos/{ficheTravail}', [MemoController::class, 'store'])->name('memos.store');
+Route::post('/memos/valider_memo/{memo}', [MemoController::class, 'validerMemo'])->name('memos.valider');
+Route::post('/memos/archiver/{memo}', [MemoController::class, 'archiver'])->name('memos.archiver');
+Route::post('/memos/desarchiver/{memo}', [MemoController::class, 'desarchiver'])->name('memos.desarchiver');
+Route::get('/memos/{memo}', [MemoController::class, 'show'])->name('memos.show');
+Route::get('/memos/{memo}/edit', [MemoController::class, 'edit'])->name('memos.edit');
+Route::put('/memos/{memo}', [MemoController::class, 'update'])->name('memos.update');
+Route::delete('/memos/{memo}', [MemoController::class, 'destroy'])->name('memos.destroy');
 
 /*routes pour informations bancaires*/
 // Route::get('/informations_bancaires', [InformationBancaireController::class, 'index'])->name('informations_bancaires.index');
