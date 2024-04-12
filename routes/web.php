@@ -87,6 +87,8 @@ Route::post('/factures/valider_facture/{facture}', [FactureController::class, 'v
 Route::post('/factures/archiver/{facture}', [FactureController::class, 'archiver'])->name('factures.archiver');
 Route::post('/factures/desarchiver/{facture}', [FactureController::class, 'desarchiver'])->name('factures.desarchiver');
 Route::get('/factures/{facture}', [FactureController::class, 'show'])->name('factures.show');
+Route::get('/factures-download/{facture}', [FactureController::class, 'downloadFacture'])->name('factures.download');
+
 Route::get('/factures/{facture}/edit', [FactureController::class, 'edit'])->name('factures.edit');
 Route::put('/factures/{facture}', [FactureController::class, 'update'])->name('factures.update');
 Route::delete('/factures/{facture}', [FactureController::class, 'destroy'])->name('factures.destroy');
@@ -100,6 +102,9 @@ Route::post('/fiches_travails/valider_facture/{fichestravails}', [FicheTravailCo
 Route::post('/fiches_travails/archiver/{fichestravails}', [FicheTravailController::class, 'archiver'])->name('fiches_travails.archiver');
 Route::post('/fiches_travails/desarchiver/{fichestravails}', [FicheTravailController::class, 'desarchiver'])->name('fiches_travails.desarchiver');
 Route::get('/fiches_travails/{ficheTravail}', [FicheTravailController::class, 'show'])->name('fiches_travails.show');
+Route::get('/fiches_travails-download/{ficheTravail}', [FicheTravailController::class, 'downloadFicheTravail'])->name('fiches_travails.download');
+
+
 Route::get('/fiches_travails/{ficheTravail}/edit', [FicheTravailController::class, 'edit'])->name('fiches_travails.edit');
 Route::put('/fiches_travails/{ficheTravail}', [FicheTravailController::class, 'update'])->name('fiches_travails.update');
 Route::delete('/fiches_travails/{ficheTravail}', [FicheTravailController::class, 'destroy'])->name('fiches_travails.destroy');
@@ -114,6 +119,8 @@ Route::post('/memos/valider_memo/{memo}', [MemoController::class, 'validerMemo']
 Route::post('/memos/archiver/{memo}', [MemoController::class, 'archiver'])->name('memos.archiver');
 Route::post('/memos/desarchiver/{memo}', [MemoController::class, 'desarchiver'])->name('memos.desarchiver');
 Route::get('/memos/{memo}', [MemoController::class, 'show'])->name('memos.show');
+Route::get('/memos-download/{memo}', [MemoController::class, 'downloadMemo'])->name('memos.download');
+
 Route::get('/memos/{memo}/edit', [MemoController::class, 'edit'])->name('memos.edit');
 Route::put('/memos/{memo}', [MemoController::class, 'update'])->name('memos.update');
 Route::delete('/memos/{memo}', [MemoController::class, 'destroy'])->name('memos.destroy');

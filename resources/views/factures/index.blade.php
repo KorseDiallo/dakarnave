@@ -87,7 +87,7 @@
 								<td class="cell"><span class="note">{{$factureValider->montantBrut}}</span></td>
 								<td class="cell"><a class="btn btn-success" href="{{route('fiches_travails.create', $factureValider->id)}}" style="color:white;">Créer Un Fild Order</a></td>
 								<td class="cell"><a class="btn btn-success" href="{{route('factures.show',$factureValider->id )}}" style="color:white;">Voir</a></td>
-								<td class="cell"><a class="btn btn-secondary" href="#" style="color:white;">Telecharger</a></td>
+								<td class="cell"><a class="btn btn-warning" href="{{route('factures.download', $factureValider->id )}}" style="color:white;">Telecharger</a></td>
 
 
 							</tr>

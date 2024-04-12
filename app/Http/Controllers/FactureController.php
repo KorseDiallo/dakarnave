@@ -6,7 +6,7 @@ use App\Http\Requests\FactureRequest;
 use App\Models\Client;
 use App\Models\Facture;
 use Illuminate\Http\Request;
-
+use PDF;
 class FactureController extends Controller
 {
   
@@ -85,6 +85,13 @@ class FactureController extends Controller
        // $client = Client::where('id', $facture->client_id)->first();
        // dd($facture->client->informationBancaires);
         return view('factures.show', compact('facture'));
+    }
+
+    public function downloadFacture(Facture $facture)
+    {
+        $pdf = PDF::loadView('download.facture', compact('facture'));
+      
+        return $pdf->download('facture-'. $facture->client->nom.'.pdf');
     }
 
 

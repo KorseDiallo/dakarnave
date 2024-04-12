@@ -1,28 +1,26 @@
-@extends('layout.index')
-@section('content')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fiche de travail</title>
+    <style>
+     
+	p {margin: 0; padding: 0;}	.ft00{font-size:27px;font-family:BAAAAA+Arial;color:#000000;}
+	.ft01{font-size:27px;font-family:CAAAAA+ArialMT;color:#000000;}
+	.ft02{font-size:16px;font-family:BAAAAA+Arial;color:#000000;}
+	.ft03{font-size:16px;font-family:CAAAAA+ArialMT;color:#000000;}
+	.ft04{font-size:15px;font-family:BAAAAA+Arial;color:#000000;}
+	.ft05{font-size:15px;font-family:CAAAAA+ArialMT;color:#000000;}
+ 
+    </style>
+</head>
+<body>
+    <div id="page1-div" style="position:relative;height:1262px; padding: 20px;">
+        <img width="100px" height="100px" src="assets/images/user.png" alt="background image" style="margin:10px 0px 5px 30px;"/>
 
-<div class="row g-4 settings-section">
-	<div class="col-12 col-md-4">
-		<h3 class="section-title">Détail client</h3>
-		<div class="section-intro">Voir Les Détails Du Client</div>
-	</div>
-
-
-
-	<div class="row gy-4">
-		<!--Debut de la fiche ici-->
-		<div class="col-12 col-lg-11">
-              <div
-                class="app-card app-card-account shadow-sm d-flex flex-column align-items-start"
-              >
-                <!-- Page 1 -->
-
-                <div id="page1-div" style="position:relative;height:1262px; padding: 20px;">
-                  <img width="100px" height="100px" src="assets/images/user.png" alt="background image" style="margin:10px 0px 5px 30px;"/>
-
-                  <p style="position:absolute;top:70px;left:331px;white-space:nowrap" class="ft00"><b>FIELD&#160;ORDER</b></p>
+        <p style="position:absolute;top:70px;left:331px;white-space:nowrap" class="ft00"><b>FIELD&#160;ORDER</b></p>
                   <p style="position:absolute;top:70px;left:650px;white-space:nowrap" class="ft00"><b>Nº {{$ficheTravail->id}}</b></p>
-                  <!-- <p style="position:absolute;top:70px;left:687px;white-space:nowrap" class="ft01">25</p> -->
                   <p style="position:absolute;top:136px;left:29px;white-space:nowrap" class="ft02"><b>ORDER&#160;Nº</b></p>
                   <p style="position:absolute;top:136px;left:133px;white-space:nowrap" class="ft03">{{$ficheTravail->facture->numeroCommande}}</p>
                   <p style="position:absolute;top:136px;left:297px;white-space:nowrap" class="ft02"><b>OWNER&#160;ITEM&#160;</b></p>
@@ -50,20 +48,7 @@
                   <p style="position:absolute;top:1102px;left: 402px;white-space:nowrap" class="ft04"><b>Signature:</b></p>
                   <p style="position:absolute;top:1128px;left: 402px;white-space:nowrap" class="ft04"><b>Date:</b> {{ date('d-m-Y'), strtotime($ficheTravail->dateSignaturePropriétaire)}}</p>
                   <p style="position:absolute;top:1180px;left:257px;white-space:nowrap" class="ft05">Printed&#160;at: {{date('d-m-Y')}}</p>
-                  </div> 
+        </div> 
 
-              </div>
-              <!--//app-card-->
-            </div>
-            <!--//col-->
-		<!--Fin  de la fiche ici-->
-
-
-
-
-
-	</div><!--//row-->
-</div><!--//table-responsive-->
-
-
-@endsection
+</body>
+</html>

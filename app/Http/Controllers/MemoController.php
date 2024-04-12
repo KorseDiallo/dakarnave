@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Fiche_travail;
 use App\Models\Memo;
 use Illuminate\Http\Request;
-
+use PDF;
 class MemoController extends Controller
 {
     /**
@@ -72,7 +72,14 @@ class MemoController extends Controller
       // dd($memo->ficheDetravail->facture->client->informationBancaires[0]['nomBanque']);
         return view('memos.show', compact('memo'));
     }
-
+    public function downloadMemo(Memo $memo)
+    {
+       
+        
+        $pdf = PDF::loadView('download.memo', compact('memo'));
+      
+        return $pdf->download('memo-'. $memo->ficheDetravail->facture->client->nom.'.pdf');
+    }
     /**
      * Show the form for editing the specified resource.
      */

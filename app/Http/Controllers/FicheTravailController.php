@@ -6,7 +6,7 @@ use App\Models\Facture;
 use Illuminate\Http\Request;
 use App\Models\Fiche_travail;
 use App\Http\Requests\FicheTravailRequest;
-
+use PDF;
 class FicheTravailController extends Controller
 {
     /**
@@ -72,6 +72,13 @@ class FicheTravailController extends Controller
     public function show(Fiche_travail $ficheTravail)
     {
         return view('fiches_travails.show', compact('ficheTravail'));
+    }
+    public function downloadFicheTravail(Fiche_travail $ficheTravail)
+    {
+       
+        $pdf = PDF::loadView('download.fiche_travail', compact('ficheTravail'));
+      
+        return $pdf->download('fiche-travail-'. $ficheTravail->facture->client->nom.'.pdf');
     }
 
     /**
