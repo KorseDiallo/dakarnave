@@ -32,11 +32,17 @@
                             @csrf      
 							<div class="email mb-3">
 								<label class="sr-only" for="signin-email">Email</label>
-								<input id="signin-email" name="email" type="email" class="form-control signin-email" placeholder="Adresse mail" required="required">
+								<input id="signin-email" name="email" type="email" class="form-control signin-email" placeholder="Adresse mail" required="required" value="{{ old('email') }}">
+                                    @error("email")
+				                        <span style="color:red">{{$message}}</span>
+				                    @enderror
 							</div><!--//form-group-->
 							<div class="password mb-3">
 								<label class="sr-only" for="signin-password">Password</label>
-								<input id="signin-password" name="password" type="password" class="form-control signin-password" placeholder="Mot de passe" required="required">
+								<input id="signin-password" name="password" type="password" class="form-control signin-password" placeholder="Mot de passe" required="required" value="{{ old('password') }}">
+                                    @error("password")
+				                        <span style="color:red">{{$message}}</span>
+				                    @enderror
 								<div class="extra mt-3 row justify-content-between">
 									<div class="col-6">
 										<div class="form-check">
@@ -58,7 +64,6 @@
 							</div>
 						</form>
 						
-						<div class="auth-option text-center pt-5">Pas de compte? S'inscrire<a class="text-link" href="/register" > ici</a>.</div>
 					</div><!--//auth-form-container-->	
 
 			    </div><!--//auth-body-->

@@ -33,36 +33,56 @@
                             @csrf         
 							<div class="email mb-3">
 								<label class="sr-only" for="signup-email">Nom</label>
-								<input id="signup-name" name="nom" type="text" class="form-control signup-name" placeholder="Nom" required="required">
+								<input id="signup-name" name="nom" type="text" class="form-control signup-name" placeholder="Nom" required="required" value="{{ old('nom') }}">
+                                    @error("nom")
+				                        <span style="color:red">{{$message}}</span>
+				                    @enderror
 							</div>
                             <div class="email mb-3">
                                 <label class="sr-only" for="signup-email">Prenom</label>
-                                <input id="signup-name" name="prenom" type="text" class="form-control signup-name" placeholder="Prenom" required="required">
+                                <input id="signup-name" name="prenom" type="text" class="form-control signup-name" placeholder="Prenom" required="required" value="{{ old('prenom') }}">
+                                    @error("prenom")
+				                        <span style="color:red">{{$message}}</span>
+				                    @enderror
                             </div>
                             <div class="email mb-3">
                                 <label class="sr-only" for="signup-email">Telephone</label>
-                                <input id="signup-name" name="telephone" type="text" class="form-control signup-name" placeholder="Telephone" required="required">
+                                <input id="signup-name" name="telephone" type="text" class="form-control signup-name" placeholder="Telephone" required="required" value="{{ old('telephone') }}">
+                                    @error("telephone")
+				                        <span style="color:red">{{$message}}</span>
+				                    @enderror
                             </div>
 							<div class="email mb-3">
 								<label class="sr-only" for="signup-email">Email</label>
-								<input id="signup-email" name="email" type="email" class="form-control signup-email" placeholder="Email" required="required">
+								<input id="signup-email" name="email" type="email" class="form-control signup-email" placeholder="Email" required="required" value="{{ old('email') }}">
+                                    @error("email")
+				                        <span style="color:red">{{$message}}</span>
+				                    @enderror
 							</div>
 							<div class="password mb-3">
 								<label class="sr-only" for="signup-password">Mot de passe</label>
-								<input id="signup-password" name="password" type="password" class="form-control signup-password" placeholder="Mot de passe" required="required">
+								<input id="signup-password" name="password" type="password" class="form-control signup-password" placeholder="Mot de passe" required="required" value="{{ old('password') }}">
+                                    @error("password")
+				                        <span style="color:red">{{$message}}</span>
+				                    @enderror
 							</div>
                             <div class="email mb-3">
 								<label class="sr-only" for="signup-email">Confirmer mot de passe</label>
-								<input id="signup-name" name="confirmPassword" type="text" class="form-control signup-name" placeholder="Confirmer mot de passe" required="required">
+								<input id="signup-name" name="confirmPassword" type="text" class="form-control signup-name" placeholder="Confirmer mot de passe" required="required" value="{{ old('confirmPassword') }}">
+                                    @error("confirmPassword")
+				                        <span style="color:red">{{$message}}</span>
+				                    @enderror
 							</div>
 
 							
 							<div class="text-center">
-								<button type="submit" class="btn app-btn-primary w-100 theme-btn mx-auto">Sign Up</button>
+								<button type="submit" class="btn app-btn-primary w-100 theme-btn mx-auto">Ajouter Admin</button>
 							</div>
 						</form><!--//auth-form-->
+                        <div style="margin-top: 20px;">
+					        <a  href="{{route('users.index')}}" style="color: gray;">Voir liste</a>
+				        </div>
 						
-						<div class="auth-option text-center pt-5">Vous avez un compte? <a class="text-link" href="/" >Se connecter</a></div>
 					</div><!--//auth-form-container-->	
 					
 					

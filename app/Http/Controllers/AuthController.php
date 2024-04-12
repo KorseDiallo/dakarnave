@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\LoginRequest;
 use App\Notifications\NotifRegister;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Notifications\Notifiable;
 use App\Http\Requests\RegisterUserRequest;
+
 
 class AuthController extends Controller
 {
@@ -16,9 +20,22 @@ class AuthController extends Controller
      */
     public function index()
     {
-        $users=User::all();
-        return view('users.index',compact('users'));
+        $users = User::where('role', 'admin')
+                        ->where('estArchive',0)
+                        ->paginate(10);
+    
+        return view('users.index', compact('users'));
     }
+
+    public function index_archives()
+    {
+        $users = User::where('role', 'admin')
+                        ->where('estArchive',1)
+                        ->paginate(10);
+    
+        return view('users.indexArchives', compact('users'));
+    }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -49,13 +66,8 @@ class AuthController extends Controller
             $user->password=Hash::make( $request->password);
             $user->save();
         }
-       // return redirect()->route('users.index')->with('success', 'Client ajouté avec succès.');
+        return redirect()->route('users.index')->with('success', 'Administrateur ajouté avec succès.');
 
-       // return 'good';
-        // if ($user->save()) {
-        //     $user->notify(new NotifRegister());
-        //     return redirect('/');
-        // }
     }
 
 
@@ -63,7 +75,7 @@ class AuthController extends Controller
         return view('users.login');
     }
 
-    public function authenticate(Request $request)
+    public function authenticate(LoginRequest $request)
     {
         
         $request->validate([
@@ -74,6 +86,11 @@ class AuthController extends Controller
         
         if(auth()->attempt(['email' => $request->email, 'password' => $request->password])){
             // Les informations d'identification sont correctes, rediriger l'utilisateur
+            if(Auth::user()->estArchive === 1){
+                return redirect('/');
+
+            }
+    
             return redirect('/clients');
         }
         
@@ -99,24 +116,43 @@ class AuthController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(User $user)
     {
-        //
+        return view('users.edit')->with('user',$user);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateUserRequest $request, User $user)
     {
-        //
+        $user->nom=$request->nom;
+        $user->prenom=$request->prenom;
+        $user->email=$request->email;
+        $user->telephone= $request->telephone;
+        $user->save();
+        if(Auth::user()->role === 'admin'){
+        return redirect()->route('clients.index');
+        }
+        return redirect()->route('users.index')->with('success', 'Profil mis à jour avec succès.');
     }
+    
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
-    {
-        //
-    }
+
+     public function destroy(User $user)
+     {
+         $user->estArchive = true;
+         $user->save();
+         return redirect()->route('users.index')->with('success', 'Client archive avec succès.');
+     }
+
+     public function desarchiver(User $user)
+     {
+         $user->estArchive = false;
+         $user->save();
+         return redirect()->route('users.indexArchives')->with('success', 'Client desarchive avec succès.');
+     }
 }
