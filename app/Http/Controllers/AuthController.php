@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Notifications\NotifRegister;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Notifications\Notifiable;
 use App\Http\Requests\RegisterUserRequest;
 
@@ -27,6 +28,11 @@ class AuthController extends Controller
         return view('users.create');
     }
 
+    public function register()
+    {
+        return view('users.register');
+    }
+
     /**
      * Store a newly created resource in storage.
      */
@@ -40,10 +46,10 @@ class AuthController extends Controller
         $user->email=$request->email;
         $user->telephone= $request->telephone;
         if($request->password===$request->confirmPassword){
-            $user->password=$request->password;
+            $user->password=Hash::make( $request->password);
             $user->save();
         }
-        return redirect()->route('users.index')->with('success', 'Client ajouté avec succès.');
+       // return redirect()->route('users.index')->with('success', 'Client ajouté avec succès.');
 
        // return 'good';
         // if ($user->save()) {
@@ -57,23 +63,23 @@ class AuthController extends Controller
         return view('users.login');
     }
 
-    public function authenticate(Request $request){
+    public function authenticate(Request $request)
+    {
         $request->validate([
             'email'=>'required|email',
             'password'=>'required',
         ]);
+        // dd($request);
         
         if(auth()->attempt(['email' => $request->email, 'password' => $request->password])){
-            $user = auth()->user();
-
-                //return 'bonjour';
-                return redirect('/admin');
-
+            // Les informations d'identification sont correctes, rediriger l'utilisateur
+            return redirect('/clients');
         }
         
+        // Les informations d'identification sont incorrectes, afficher un message d'erreur
         return back()->withErrors('email et/ou mot de passe incorrect !!!!');
-        
     }
+    
 
     public function logout(){
         auth()->logout();
