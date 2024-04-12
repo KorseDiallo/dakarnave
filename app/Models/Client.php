@@ -12,7 +12,7 @@ class Client extends Model
 
    public $guarded = ["id"];
 
-   public function informationBancaire() : HasMany
+   public function informationBancaires() : HasMany
    {
     return $this->hasMany(InformationBancaire::class);
    }

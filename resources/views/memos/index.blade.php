@@ -82,7 +82,7 @@
 								<td class="cell">{{$memoValider->owner}}</td>
 
 								<!-- <td class="cell"><a class="btn btn-success" href="" style="color:white;">Créer un memo</a></td> -->
-								<td class="cell"><a class="btn btn-success" href="#" style="color:white;">Voir</a></td>
+								<td class="cell"><a class="btn btn-success" href="{{route('memos.show',$memoValider->id)}} " style="color:white;">Voir</a></td>
 								<td class="cell"><a class="btn btn-warning" href="#" style="color:white;">Telecharger</a></td>
 
 							</tr>

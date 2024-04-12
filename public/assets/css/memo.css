@@ -1,0 +1,33 @@
+
+.ft00 {
+    font-size: 18px;
+    font-family: BAAAAA + Arial;
+    color: #000000;
+}
+.ft01 {
+    font-size: 15px;
+    font-family: BAAAAA + Arial;
+    color: #000000;
+}
+.ft02 {
+    font-size: 15px;
+    font-family: CAAAAA + ArialMT;
+    color: #000000;
+}
+.ft03 {
+    font-size: 13px;
+    font-family: CAAAAA + ArialMT;
+    color: #000000;
+}
+.ft04 {
+    font-size: 15px;
+    line-height: 17px;
+    font-family: CAAAAA + ArialMT;
+    color: #000000;
+}
+.ft05 {
+    font-size: 13px;
+    line-height: 15px;
+    font-family: CAAAAA + ArialMT;
+    color: #000000;
+}

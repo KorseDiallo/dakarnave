@@ -13,12 +13,26 @@
 	<meta name="description" content="Portal - Bootstrap 5 Admin Dashboard Template For Developers">
 	<meta name="author" content="Xiaoying Riley at 3rd Wave Media">
 	<link rel="shortcut icon" href="favicon.ico">
-
+	<link rel="stylesheet" href="{{asset('assets/css/memo.css')}}">
+<style>
+	body {
+    font-family: Arial;
+    font-size: 23.1px;
+  }
+  .pos {
+    position: absolute;
+    z-index: 0;
+    left: 0px;
+    top: 0px;
+  }
+</style>
 	<!-- FontAwesome JS-->
 	<script defer src="{{asset('assets/plugins/fontawesome/js/all.min.js')}}"></script>
 
 	<!-- App CSS -->
 	<link id="theme-style" rel="stylesheet" href="{{asset('assets/css/portal.css')}}">
+
+
 
 </head>
 
@@ -280,7 +294,7 @@
 						</li><!--//nav-item-->
 
 
-						
+
 
 
 
@@ -299,7 +313,7 @@
 						</li><!--//nav-item-->
 					</ul><!--//app-menu-->
 				</nav><!--//app-nav-->
-				
+
 
 			</div><!--//sidepanel-inner-->
 		</div><!--//app-sidepanel-->

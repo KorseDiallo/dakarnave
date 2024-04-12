@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class InformationBancaire extends Model
 {
     use HasFactory;
+    protected $guarded=['id'];
+    public function client()
+    {
+        return $this->belongsTo(Client::class, 'client_id');
+    }
 }

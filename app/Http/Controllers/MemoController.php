@@ -69,6 +69,7 @@ class MemoController extends Controller
      */
     public function show(Memo $memo)
     {
+      // dd($memo->ficheDetravail->facture->client->informationBancaires[0]['nomBanque']);
         return view('memos.show', compact('memo'));
     }
 
