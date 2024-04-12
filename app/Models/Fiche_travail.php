@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Fiche_travail extends Model
 {
@@ -12,6 +13,11 @@ class Fiche_travail extends Model
 
     public function facture()
     {
-        return $this->belongsTo(Facture::class);
+        return $this->belongsTo(Facture::class, 'facture_id');
+    }
+
+    public function memos() : HasMany
+    {
+     return $this->hasMany(Memo::class);
     }
 }

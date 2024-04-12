@@ -24,7 +24,7 @@ return new class extends Migration
             $table->date("dateSignatureProductManager");
 
 
-            $table->integer("prix");
+            $table->double("prix");
             $table->string("tempLivraison")->nullable();
             $table->text("remarque")->nullable();
             $table->boolean("valider");

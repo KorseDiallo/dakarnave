@@ -20,10 +20,10 @@ return new class extends Migration
             $table->date("debutTravaux");
             $table->date("finTravaux");
             $table->text("detailTravaux")->nullable();
-            $table->float("montantBrut");
-            $table->float("reductionDiscussion");
-            $table->float("reductionRabaisFlotte");
-            $table->float("reductionRabaisNavire");
+            $table->double("montantBrut");
+            $table->double("reductionDiscussion");
+            $table->double("reductionRabaisFlotte");
+            $table->double("reductionRabaisNavire");
             $table->enum("langue",["fr","us"]);
             $table->enum("devise",["fcfa","euro","dollar"]);
             $table->boolean("valider");

@@ -82,6 +82,8 @@ class FactureController extends Controller
 
     public function show(Facture $facture)
     {
+       // $client = Client::where('id', $facture->client_id)->first();
+       // dd($facture->client->informationBancaires);
         return view('factures.show', compact('facture'));
     }
 

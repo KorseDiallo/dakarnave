@@ -27,7 +27,7 @@
 				<span style="font-family:Arial">&#xa0;</span>
 			</p>
 			<p style="margin-top:0pt; margin-bottom:10pt; text-align:right; line-height:normal; font-size:9pt">
-				<span style="font-family:Arial">Dakar, le </span><u><span style="font-family:Arial; ">{{$facture->created_at}}</span></u>
+				<span style="font-family:Arial">Dakar, le </span><u><span style="font-family:Arial; ">{{ date('d-m-Y', strtotime($facture->created_at)) }}</span></u>
 			</p>
 			<p style="margin-top:0pt; margin-left:375.65pt; margin-bottom:10pt; text-align:justify; line-height:normal; font-size:9pt">
 				<strong><span style="font-family:Arial; ">DOIT</span></strong>
@@ -36,14 +36,12 @@
 				<tr style="height:63.5pt">
 					<td style="width:164.75pt; padding-right:3.5pt; padding-left:3.5pt; vertical-align:top">
 						<p style="margin-top:0pt; margin-bottom:0pt; text-align:justify; font-size:9pt">
-							<span style="font-family:Arial; background-color:#ffff00">KOMAYA SHIPPING CO. (UK) LTD</span>
+							<span style="font-family:Arial; background-color:#ffff00">{{$facture->client->raisonSocial}}</span>
 						</p>
 						<p style="margin-top:0pt; margin-bottom:0pt; text-align:justify; font-size:9pt">
-							<span style="font-family:Arial; background-color:#ffff00">13-13-07, 1, KIM SENG PROMENADE,</span>
+							<span style="font-family:Arial; background-color:#ffff00">{{$facture->client->adresse}}</span>
 						</p>
-						<p style="margin-top:0pt; margin-bottom:0pt; text-align:justify; font-size:9pt">
-							<span style="font-family:Arial; background-color:#ffff00">GREAT WORLD CITY, </span>
-						</p>
+
 						<p style="margin-top:0pt; margin-bottom:10pt; text-align:justify; font-size:9pt">
 							<span style="height:0pt; text-align:left; display:block; position:absolute; z-index:-1"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOgAAABWCAYAAADFadp9AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAC6SURBVHhe7dNhBoBAFEbR2f+mK0nEiObXjXP4vLeBOw7bxwFrZj297XQ/QIZAIUygECZQCBMohAkUwgQKYQKFMIFCmEAhTKAQJlAIEyiECRQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4Ge26wIdd5cChR6BQphAIUygECZQCBMohAkUwgQKYQKFMIFCmEAhTKAQ9gj0y4A1s57eBgAsGGMHLOZknIi2zxgAAAAASUVORK5CYII=" width="232" height="86" alt="" style="margin-top:-30.45pt; margin-left:-3.75pt; position:absolute" ></span><span style="font-family:Arial; background-color:#ffff00">SINGAPORE 237994</span><span style="font-family:Arial"> </span>
 						</p>
@@ -83,19 +81,19 @@
 					</td>
 					<td style="width:99.3pt; border-top-style:solid; border-top-width:0.75pt; border-bottom-style:solid; border-bottom-width:0.75pt; padding-right:3.5pt; padding-left:3.5pt; vertical-align:middle">
 						<p style="margin-top:0pt; margin-bottom:10pt; line-height:115%; font-size:9pt">
-						<span style="font-family:Arial; background-color:#ffff00">numéro référence</span>
+						<span style="font-family:Arial; background-color:#ffff00"></span>
 						</p>
 					</td>
 				</tr>
 			</table>
 			<p style="margin-top:0pt; margin-bottom:10pt; line-height:115%; font-size:10pt">
-				<strong><span style="font-family:Arial; ">FACTURE Nº 0007315</span></strong>
+				<strong><span style="font-family:Arial; ">FACTURE Nº {{$facture->numeroFacture}}</span></strong>
 			</p>
 			<table cellspacing="0" cellpadding="0" style="width:100%; border-collapse:collapse">
 				<tr style="height:10.95pt">
 					<td colspan="5" style="border-top-style:solid; border-top-width:1.5pt; border-right-style:solid; border-right-width:0.75pt; border-left-style:solid; border-left-width:1.5pt; padding-right:3.12pt; padding-left:2.75pt; vertical-align:middle">
 						<p style="margin-top:0pt; margin-bottom:10pt; text-align:center; line-height:115%; font-size:10pt">
-							<strong><u><span style="font-family:Arial; background-color:#ffff00">M.V. CHELSEA</span></u></strong>
+							<strong><u><span style="font-family:Arial; background-color:#ffff00">{{$facture->client->nom}}</span></u></strong>
 						</p>
 					</td>
 					<td rowspan="6" style="width:9%; border-top-style:solid; border-top-width:1.5pt; border-right-style:solid; border-right-width:0.75pt; border-left-style:solid; border-left-width:0.75pt; padding-right:3.12pt; padding-left:3.12pt; vertical-align:top">
@@ -122,7 +120,7 @@
 					</td>
 					<td colspan="2" style="border-right-style:solid; border-right-width:0.75pt; padding-right:3.12pt; padding-left:3.5pt; vertical-align:middle">
 						<p style="margin-top:0pt; margin-bottom:10pt; font-size:9pt">
-							<span style="font-family:Arial; background-color:#ffff00">16/02/2008</span>
+							<span style="font-family:Arial; background-color:#ffff00">{{ date('d-m-Y', strtotime($facture->debutTravaux)) }}</span>
 						</p>
 					</td>
 				</tr>
@@ -139,7 +137,7 @@
 					</td>
 					<td colspan="2" style="border-right-style:solid; border-right-width:0.75pt; padding-right:3.12pt; padding-left:3.5pt; vertical-align:middle">
 						<p style="margin-top:0pt; margin-bottom:10pt; font-size:9pt">
-							<span style="font-family:Arial; background-color:#ffff00">04/03/2008</span>
+							<span style="font-family:Arial; background-color:#ffff00">{{ date('d-m-Y', strtotime($facture->finTravaux)) }}</span>
 						</p>
 					</td>
 				</tr>
@@ -189,12 +187,12 @@
 					</td>
 					<td style="width:9%; border-right-style:solid; border-right-width:0.75pt; border-left-style:solid; border-left-width:0.75pt; padding-right:3.12pt; padding-left:3.12pt; vertical-align:middle">
 						<p style="margin-top:0pt; margin-bottom:10pt; line-height:115%; font-size:9pt">
-							<span style="font-family:Arial">EUR</span>
+							<span style="font-family:Arial">{{ $facture->devise }}</span>
 						</p>
 					</td>
 					<td style="width:9.58%; border-right-style:solid; border-right-width:1.5pt; border-left-style:solid; border-left-width:0.75pt; padding-right:2.75pt; padding-left:3.12pt; vertical-align:middle">
 						<p style="margin-top:0pt; margin-bottom:10pt; text-align:center; line-height:115%; font-size:9pt">
-							<span style="font-family:Arial; background-color:#ffff00">80.135,00</span>
+							<span style="font-family:Arial; background-color:#ffff00">{{ $facture->montantBrut }}</span>
 						</p>
 					</td>
 				</tr>
@@ -257,12 +255,12 @@
 					</td>
 					<td style="width:9%; border-right-style:solid; border-right-width:0.75pt; border-left-style:solid; border-left-width:0.75pt; padding-right:3.12pt; padding-left:3.12pt; vertical-align:middle">
 						<p style="margin-top:0pt; margin-bottom:10pt; line-height:115%; font-size:9pt">
-							<span style="font-family:Arial">EUR</span>
+							<span style="font-family:Arial">{{ $facture->devise }}</span>
 						</p>
 					</td>
 					<td style="width:9.58%; border-right-style:solid; border-right-width:1.5pt; border-left-style:solid; border-left-width:0.75pt; padding-right:2.75pt; padding-left:3.12pt; vertical-align:middle">
 						<p style="margin-top:0pt; margin-bottom:10pt; text-align:center; line-height:115%; font-size:9pt">
-							<span style="font-family:Arial; background-color:#ffff00">1.135,00</span>
+							<span style="font-family:Arial; background-color:#ffff00">{{ $facture->reductionDiscussion }}</span>
 						</p>
 					</td>
 				</tr>
@@ -274,12 +272,12 @@
 					</td>
 					<td style="width:9%; border-right-style:solid; border-right-width:0.75pt; border-left-style:solid; border-left-width:0.75pt; padding-right:3.12pt; padding-left:3.12pt; vertical-align:middle">
 						<p style="margin-top:0pt; margin-bottom:10pt; line-height:115%; font-size:9pt">
-							<span style="font-family:Arial">EUR</span>
+							<span style="font-family:Arial">{{ $facture->devise }}</span>
 						</p>
 					</td>
 					<td style="width:9.58%; border-right-style:solid; border-right-width:1.5pt; border-left-style:solid; border-left-width:0.75pt; padding-right:2.75pt; padding-left:3.12pt; vertical-align:middle">
 						<p style="margin-top:0pt; margin-bottom:10pt; text-align:center; line-height:115%; font-size:9pt">
-							<span style="font-family:Arial; background-color:#ffff00">2.370,00</span>
+							<span style="font-family:Arial; background-color:#ffff00">{{ $facture->reductionRabaisFlotte }}</span>
 						</p>
 					</td>
 				</tr>
@@ -291,12 +289,12 @@
 					</td>
 					<td style="width:9%; border-right-style:solid; border-right-width:0.75pt; border-left-style:solid; border-left-width:0.75pt; padding-right:3.12pt; padding-left:3.12pt; vertical-align:middle">
 						<p style="margin-top:0pt; margin-bottom:10pt; line-height:115%; font-size:9pt">
-							<span style="font-family:Arial">EUR</span>
+							<span style="font-family:Arial">{{ $facture->devise }}</span>
 						</p>
 					</td>
 					<td style="width:9.58%; border-right-style:solid; border-right-width:1.5pt; border-left-style:solid; border-left-width:0.75pt; padding-right:2.75pt; padding-left:3.12pt; vertical-align:middle">
 						<p style="margin-top:0pt; margin-bottom:10pt; text-align:center; line-height:115%; font-size:9pt">
-							<span style="font-family:Arial; background-color:#ffff00">4.598,00</span>
+							<span style="font-family:Arial; background-color:#ffff00">{{ $facture->reductionRabaisNavire }}</span>
 						</p>
 					</td>
 				</tr>
@@ -359,12 +357,12 @@
 					</td>
 					<td style="width:9%; border-right-style:solid; border-right-width:0.75pt; border-left-style:solid; border-left-width:0.75pt; padding-right:3.12pt; padding-left:3.12pt; vertical-align:middle">
 						<p style="margin-top:0pt; margin-bottom:10pt; line-height:115%; font-size:9pt">
-							<strong><span style="font-family:Arial; ">EUR</span></strong>
+							<strong><span style="font-family:Arial; ">{{ $facture->devise }}</span></strong>
 						</p>
 					</td>
 					<td style="width:9.58%; border-right-style:solid; border-right-width:1.5pt; border-left-style:solid; border-left-width:0.75pt; padding-right:2.75pt; padding-left:3.12pt; vertical-align:middle">
 						<p style="margin-top:0pt; margin-bottom:10pt; text-align:center; line-height:115%; font-size:9pt">
-							<strong><span style="font-family:Arial; ">72.032,00</span></strong>
+							<strong><span style="font-family:Arial; ">{{$facture->montantBrut - ($facture->reductionDiscussion +$facture->reductionRabaisFlotte + $facture->reductionRabaisNavire )}}</span></strong>
 						</p>
 					</td>
 				</tr>
@@ -439,13 +437,13 @@
 							<strong><u><span style="font-family:Arial; ">CORRESPONDENT BANK:</span></u></strong>
 						</p>
 						<p style="margin-top:0pt; margin-bottom:0pt; font-size:9pt">
-							<span style="font-family:Arial">CRÉDIT AGRICOLE SA</span>
+							<span style="font-family:Arial">{{$facture->client->informationBancaires[0]['nomBanque']}}</span>
 						</p>
 						<p style="margin-top:0pt; margin-bottom:0pt; font-size:9pt">
-							<span style="font-family:Arial">78042 GUYANCOURT CEDEX</span>
+							<span style="font-family:Arial">{{$facture->client->informationBancaires[0]['adresseBancaire']}}</span>
 						</p>
 						<p style="margin-top:0pt; margin-bottom:0pt; font-size:9pt">
-							<span style="font-family:Arial">FRANCE</span><br ><span style="font-family:Arial">IBAN: FR76 30006 00001 20534 66300 045 </span><br ><span style="font-family:Arial">SWIFT: AGRIFRPP</span>
+							<span style="font-family:Arial">{{$facture->client->informationBancaires[0]['pays']}}</span><br ><span style="font-family:Arial">IBAN: {{$facture->client->informationBancaires[0]['iban']}} </span><br ><span style="font-family:Arial">SWIFT: {{$facture->client->informationBancaires[0]['swift']}}</span>
 						</p>
 						<p style="margin-top:0pt; margin-bottom:10pt; line-height:115%; font-size:9pt">
 							<span style="font-family:Arial">&#xa0;</span>
@@ -465,24 +463,24 @@
 					</td>
 					<td rowspan="2" style="width:9%; border-style:solid; border-width:0.75pt 0.75pt 1.5pt; padding-right:3.12pt; padding-left:3.12pt; vertical-align:middle">
 						<p style="margin-top:0pt; margin-bottom:10pt; line-height:115%; font-size:9pt">
-							<strong><span style="font-family:Arial; ">NET EUR</span></strong>
+							<strong><span style="font-family:Arial; ">NET {{$facture->devise}}</span></strong>
 						</p>
 					</td>
 					<td rowspan="2" style="width:9.58%; border-style:solid; border-width:0.75pt 1.5pt 1.5pt 0.75pt; padding-right:2.75pt; padding-left:3.12pt; vertical-align:middle">
 						<p style="margin-top:0pt; margin-bottom:10pt; line-height:115%; font-size:9pt">
-							<strong><span style="font-family:Arial; ">72.032,00</span></strong>
+							<strong><span style="font-family:Arial; ">{{$facture->montantBrut - ($facture->reductionDiscussion +$facture->reductionRabaisFlotte + $facture->reductionRabaisNavire )}}</span></strong>
 						</p>
 					</td>
 				</tr>
 				<tr style="height:18.5pt">
 					<td colspan="2" style="border-top-style:solid; border-top-width:0.75pt; border-left-style:solid; border-left-width:1.5pt; border-bottom-style:solid; border-bottom-width:1.5pt; padding-right:3.5pt; padding-left:2.75pt; vertical-align:middle">
 						<p style="margin-top:0pt; margin-bottom:10pt; line-height:115%; font-size:9pt">
-							<strong><span style="font-family:Arial; ">EUR</span></strong>
+							<strong><span style="font-family:Arial; ">{{$facture->devise}}</span></strong>
 						</p>
 					</td>
 					<td colspan="2" style="border-top-style:solid; border-top-width:0.75pt; border-right-style:solid; border-right-width:0.75pt; border-bottom-style:solid; border-bottom-width:1.5pt; padding-right:3.12pt; padding-left:3.5pt; vertical-align:middle">
 						<p style="margin-top:0pt; margin-bottom:10pt; line-height:115%; font-size:9pt">
-							<strong><span style="font-family:Arial; ">72.032,00</span></strong>
+							<strong><span style="font-family:Arial; ">{{$facture->montantBrut - ($facture->reductionDiscussion +$facture->reductionRabaisFlotte + $facture->reductionRabaisNavire )}}</span></strong>
 						</p>
 					</td>
 					<td style="width:39.76%; border-style:solid; border-width:0.75pt 0.75pt 1.5pt; padding-right:3.12pt; padding-left:3.12pt; vertical-align:middle">
@@ -540,125 +538,7 @@
 <!--Fin  de la fiche ici-->
 
                 
-<div style="overflow-y: auto; width: 1000px; height:350px">
-	<!--Debut de la card et de la boucle ici-->
-	
-	<div class="w-100 mt-5">
-		<div class="app-card app-card-account shadow-sm d-flex flex-column align-items-start">
-			<div class="app-card-header p-3 border-bottom-0">
-				<div class="row align-items-center gx-3">
-					<div class="col-auto">
-						<div class="app-icon-holder">
-							<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-credit-card" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-								<path fill-rule="evenodd" d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v1h14V4a1 1 0 0 0-1-1H2zm13 4H1v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V7z" />
-								<path d="M2 10a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1z" />
-							</svg>
-						</div><!--//icon-holder-->
 
-					</div><!--//col-->
-					<div class="col-auto">
-						<h4 class="app-card-title">Facture</h4>
-					</div><!--//col-->
-				</div><!--//row-->
-			</div><!--//app-card-header-->
-			<div class="app-card-body px-4 w-100">
-				<div class="item  py-3">
-					<div class="row   mb-5 w-50">
-						<div class="col mb-2">
-							<div class="item-label d-flex justify-content-between">
-								<span class="item-label text-start"><strong>Numero Commande:</strong></span>
-								<span class="item-data text-end">1500</span>
-							</div>
-							<div class="item-label d-flex justify-content-between">
-								<span class="item-label text-start"><strong>Reference:</strong></span>
-								<span class="item-data text-end">3665</span>
-							</div>
-
-						</div><!--//col-->
-					</div><!--//row-->
-
-					<div class="row align-items-center mb-2 w-50  mt-5">
-						<div class="item-label d-flex justify-content-between">
-							<span class="item-label text-start"><strong>Numéro Facture:</strong></span>
-							<span class="item-data text-end">5000</span>
-						</div>
-					</div>
-
-
-					<div class="row  align-items-center mb-3 ">
-
-
-						<div class="col">
-							<div class="item-label d-flex justify-content-between">
-								<span class="item-label text-start"><strong>Debut travaux:</strong></span>
-								<span class="item-data text-end">522</span>
-							</div>
-							<div class="item-label d-flex justify-content-between">
-								<span class="item-label text-start"><strong>Fin travaux:</strong></span>
-								<span class="item-data text-end">5200</span>
-							</div>
-
-						</div><!--//col-->
-
-
-						<div class="col">
-							<div class="item-label d-flex justify-content-between">
-								<span class="item-label text-start"><strong>Montant Brut:</strong></span>
-								<span class="item-data text-end">055 EUR</span>
-							</div>
-							<div class="item-label d-flex justify-content-between">
-								<span class="item-label text-start"><strong>Reduction Discussion:</strong></span>
-								<span class="item-data text-end">500 EUR</span>
-							</div>
-							<div class="item-label d-flex justify-content-between">
-								<span class="item-label text-start"><strong>Reduction Rabais Flott:</strong></span>
-								<span class="item-data text-end">2500 EUR</span>
-							</div>
-							<div class="item-label d-flex justify-content-between">
-								<span class="item-label text-start"><strong>Reduction Rabais Navire:</strong></span>
-								<span class="item-data text-end">744 EUR</span>
-							</div>
-						</div>
-					</div><!--//col-->
-				</div><!--//row-->
-				<div class="row   mb-5 w-50">
-					<div class="col mb-2">
-						<div class="item-label d-flex justify-content-between">
-							<span class="item-label text-start"><strong>Langue:</strong></span>
-							<span class="item-data text-end">411</span>
-						</div>
-						<div class="item-label d-flex justify-content-between">
-							<span class="item-label text-start"><strong>Devise:</strong></span>
-							<span class="item-data text-end">755</span>
-						</div>
-						<div class="item-label d-flex justify-content-between">
-							<span class="item-label text-start"><strong>Valider:</strong></span>
-							<span class="item-data text-end">855</span>
-						</div>
-
-					</div><!--//col-->
-				</div><!--//row-->
-
-				<div class="row   mb-5 w-50">
-				<div class="col mb-2">
-				<div class="item-label ">
-							<span class="item-label "><strong>Details Travaux:</strong></span>
-							<span class="item-data ">633</span>
-						</div>
-				</div>
-				</div>
-
-			</div>
-		</div><!--//app-card-->
-	</div><!--//col-->
-
-	<!--Fin de la card et de la boucle ici-->
-	
-	<div class="w-100 mt-5" style="text-align: center;">
-		<h3>Aucune facutre pour l'instant</h3>
-	</div>
-	
-</div>
 
 
                 </div><!--//row-->
