@@ -22,9 +22,9 @@ use App\Http\Controllers\InformationBancaireController;
 
 Route::get('/',[AuthController::class,'login'])->name('login');
 
-Route::get('/register', function () {
-    return view('users.register');
-});
+// Route::get('/register', function () {
+//     return view('users.register');
+// });
 
 Route::get('/register',[AuthController::class,'register']);
 
@@ -78,7 +78,7 @@ Route::post('/logout', [AuthController::class,'logout']);
 
 /*routes pour clients*/
 
-Route::get('/clients', [ClientController::class, 'index'])->name('clients.index')->middleware(['auth', 'role:admin']);
+Route::get('/clients', [ClientController::class, 'index'])->name('clients.index');
 
 Route::get('/clients/create', [ClientController::class, 'create'])->name('clients.create');
 Route::post('/clients', [ClientController::class, 'store'])->name('clients.store');
