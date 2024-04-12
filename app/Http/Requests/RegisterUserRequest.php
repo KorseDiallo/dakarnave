@@ -29,7 +29,7 @@ class RegisterUserRequest extends FormRequest
             'email'=>'required|unique:users,email|regex:/^[A-Za-z]+[A-Za-z0-9._%+-]+@+[A-Za-z][A-Za-z0-9.-]+.[A-Za-z]{2,}$/',
             'password'=>'required|regex:/^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[@#$%^&+=!])(.{8,})$/',
             'confirmPassword'=>'required|regex:/^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[@#$%^&+=!])(.{8,})$/',
-            'telephone' =>'required|regex:/^7[0-9]{8}$/|unique:users,phone',
+            'telephone' =>'required|regex:/^7[0-9]{8}$/|unique:users,telephone',
         ];
     }
 

@@ -20,9 +20,20 @@ use App\Http\Controllers\InformationBancaireController;
 |
 */
 
-Route::get('/', function () {
-    return view('layout.index');
+Route::get('/',[AuthController::class,'login'])->name('login');
+
+Route::get('/register', function () {
+    return view('users.register');
 });
+
+Route::get('/register',[AuthController::class,'register']);
+
+Route::post('/authenticate', [AuthController::class, 'authenticate'])->name('users.authenticate');
+Route::post('/signup', [AuthController::class, 'store'])->name('users.store');
+Route::post('/logout', [AuthController::class,'logout']);
+
+// Route::middleware(['auth', 'role:superAdmin'])->group(function(){})
+
 
 // Route::get('/clients', function () {
 //     return view('clients.index');
@@ -67,7 +78,7 @@ Route::get('/', function () {
 
 /*routes pour clients*/
 
-Route::get('/clients', [ClientController::class, 'index'])->name('clients.index');
+Route::get('/clients', [ClientController::class, 'index'])->name('clients.index')->middleware(['auth', 'role:admin']);
 
 Route::get('/clients/create', [ClientController::class, 'create'])->name('clients.create');
 Route::post('/clients', [ClientController::class, 'store'])->name('clients.store');
