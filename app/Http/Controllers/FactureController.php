@@ -94,7 +94,7 @@ class FactureController extends Controller
     }
 
 
-    public function update(Request $request, Facture $facture)
+    public function update(FactureRequest $request, Facture $facture)
     {
         $facture->debutTravaux=$request->debutTravaux;
         $facture->finTravaux=$request->finTravaux;

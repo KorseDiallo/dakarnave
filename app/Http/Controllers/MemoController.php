@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\MemoRequest;
 use App\Models\Fiche_travail;
 use App\Models\Memo;
 use Illuminate\Http\Request;
@@ -52,7 +53,7 @@ class MemoController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request,Fiche_travail $ficheTravail)
+    public function store(MemoRequest $request,Fiche_travail $ficheTravail)
     {
         $memo = new Memo();
         $memo->amarrageNavire=$request->amarrageNavire;
@@ -84,7 +85,7 @@ class MemoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Memo $memo)
+    public function update(MemoRequest $request, Memo $memo)
     {
         $memo->amarrageNavire=$request->amarrageNavire;
         $memo->desamarrageNavire=$request->desamarrageNavire;
