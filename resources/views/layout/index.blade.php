@@ -154,7 +154,12 @@
 									<li>
 										<hr class="dropdown-divider">
 									</li>
-									<li><a class="dropdown-item" href="login.html">Log Out</a></li>
+									<li>
+										<a href="#" onclick="document.getElementById('form-logout').submit()">
+                                            <form action="/logout" method="post" id="form-logout">@csrf</form>
+                                            <i class="dropdown-item"></i>Logout
+                                        </a>
+									</li>
 								</ul>
 							</div><!--//app-user-dropdown-->
 						</div><!--//app-utilities-->
