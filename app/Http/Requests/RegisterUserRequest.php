@@ -28,20 +28,11 @@ class RegisterUserRequest extends FormRequest
             'prenom'=>'required|regex:/^[A-Za-zÀ-ÖØ-öø-ÿ]+$/',
             'email'=>'required|unique:users,email|regex:/^[A-Za-z]+[A-Za-z0-9._%+-]+@+[A-Za-z][A-Za-z0-9.-]+.[A-Za-z]{2,}$/',
             'password'=>'required|regex:/^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[@#$%^&+=!])(.{8,})$/',
-            'confirmPassword'=>'required|regex:/^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[@#$%^&+=!])(.{8,})$/',
+            'confirmPassword'=>'required|same:password|regex:/^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[@#$%^&+=!])(.{8,})$/',
             'telephone' =>'required|regex:/^7[0-9]{8}$/|unique:users,telephone',
         ];
     }
 
-    public function failedValidation(validator $validator ){
-        throw new HttpResponseException(response()->json([
-            'success'=>false,
-            'status_code'=>422,
-            'error'=>true,
-            'message'=>'erreur de validation',
-            'errorList'=>$validator->errors()
-        ]));
-    }
     public function messages(){
         return [
             'nom.required'=>'le nom est requis',
@@ -53,8 +44,9 @@ class RegisterUserRequest extends FormRequest
             'email.regex'=>"format email incorrect",
             'password.required'=>'le mot de passe est requis',
             'confirmPassword.required'=>'la confirmation du mot de passe est requis',
+            'confirmPassword.same'=>'mots de passe differents',
             'password.regex'=>"le mot de passe doit contenir au moins 8 caractéres avec un chiffre, une lettre et un caractére spécial",
-            'confirmPassword.regex'=>"le mot de passe de confirmation doit contenir au moins 8 caractéres avec un chiffre, une lettre et un caractére spécial",
+            // 'confirmPassword.regex'=>"le mot de passe de confirmation doit contenir au moins 8 caractéres avec un chiffre, une lettre et un caractére spécial",
             'telephone.required'=>'le numéro de téléphone est requis',
             'telephone.unique'=>'le numéro telephone est deja utilisé',
             'telephone.regex'=>'le format du numéro est incorrect',

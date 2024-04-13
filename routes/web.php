@@ -22,11 +22,17 @@ use App\Http\Controllers\InformationBancaireController;
 
 Route::get('/',[AuthController::class,'login'])->name('login');
 
-Route::get('/register', function () {
-    return view('users.register');
-});
+// Route::get('/register', function () {
+//     return view('users.register');
+// });
 
-Route::get('/register',[AuthController::class,'register']);
+Route::get('/register',[AuthController::class,'register'])->name('register');
+Route::get('/users/index',[AuthController::class,'index'])->name('users.index')->middleware('auth', 'role:superAdmin');
+Route::get('/users/index-archives',[AuthController::class,'index_archives'])->name('users.indexArchives')->middleware('auth', 'role:superAdmin');
+Route::post('/users/{user}', [AuthController::class, 'destroy'])->name('users.destroy');
+Route::post('/users/desarchive/{user}', [AuthController::class, 'desarchiver'])->name('users.desarchive');
+Route::get('/users/{user}/edit', [AuthController::class, 'edit'])->name('users.edit');
+Route::post('/users/{user}/update', [AuthController::class, 'update'])->name('users.update');
 
 Route::post('/authenticate', [AuthController::class, 'authenticate'])->name('users.authenticate');
 Route::post('/signup', [AuthController::class, 'store'])->name('users.store');
@@ -78,7 +84,7 @@ Route::post('/logout', [AuthController::class,'logout']);
 
 /*routes pour clients*/
 
-Route::get('/clients', [ClientController::class, 'index'])->name('clients.index')->middleware(['auth', 'role:admin']);
+Route::get('/clients', [ClientController::class, 'index'])->name('clients.index');
 
 Route::get('/clients/create', [ClientController::class, 'create'])->name('clients.create');
 Route::post('/clients', [ClientController::class, 'store'])->name('clients.store');
