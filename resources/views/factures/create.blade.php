@@ -20,7 +20,7 @@
 										<path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z" />
 										<circle cx="8" cy="4.5" r="1" />
 									</svg></span></label>
-							<input type="date" class="form-control" id="setting-input-1" name="debutTravaux">
+							<input type="date" class="form-control" id="setting-input-1" name="debutTravaux" value="{{old('debutTravaux')}}">
 							@error("debutTravaux")
 							<span style="color:red">{{$message}}</span>
 
@@ -32,7 +32,7 @@
 										<path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z" />
 										<circle cx="8" cy="4.5" r="1" />
 									</svg></span></label>
-							<input type="date" class="form-control" id="setting-input-1" name="finTravaux">
+							<input type="date" class="form-control" id="setting-input-1" name="finTravaux" value="{{old('finTravaux')}}" >
 							@error("finTravaux")
 							<span style="color:red">{{$message}}</span>
 
@@ -41,7 +41,7 @@
 					</div>
 					<div class="mb-3">
 						<label for="setting-input-2" class="form-label">Detail Travaux</label>
-						<textarea class="form-control" name="detailTravaux"></textarea>
+						<textarea class="form-control" name="detailTravaux" ></textarea>
 						@error("detailTravaux")
 						<span style="color:red">{{$message}}</span>
 
@@ -50,7 +50,7 @@
 					<div class=" row mb-3">
 						<div class="col">
 							<label for="setting-input-3" class="form-label">Montant Brut</label>
-							<input type="number" class="form-control" id="setting-input-3" name="montantBrut" min="0">
+							<input type="number" class="form-control" id="setting-input-3" name="montantBrut" min="0" value="{{old('montantBrut')}}">
 							@error("montantBrut")
 							<span style="color:red">{{$message}}</span>
 
@@ -58,7 +58,7 @@
 						</div>
 						<div class="col">
 							<label for="setting-input-3" class="form-label">Reduction Discussion</label>
-							<input type="number" class="form-control" id="setting-input-3" name="reductionDiscussion" min="0">
+							<input type="number" class="form-control" id="setting-input-3" name="reductionDiscussion" min="0" value="{{old('reductionDiscussion')}}">
 							@error("reductionDiscussion")
 							<span style="color:red">{{$message}}</span>
 
@@ -71,7 +71,7 @@
 					<div class=" row mb-3">
 						<div class="col">
 							<label for="setting-input-3" class="form-label">Reduction Rabais Flotte</label>
-							<input type="number" class="form-control" id="setting-input-3" name="reductionRabaisFlotte" min="0">
+							<input type="number" class="form-control" id="setting-input-3" name="reductionRabaisFlotte" min="0" value="{{old('reductionRabaisFlotte')}}">
 							@error("reductionRabaisFlotte")
 							<span style="color:red">{{$message}}</span>
 
@@ -79,7 +79,7 @@
 						</div>
 						<div class="col">
 							<label for="setting-input-3" class="form-label">Reduction Rabais Navire</label>
-							<input type="number" class="form-control" id="setting-input-3" name="reductionRabaisNavire" min="0">
+							<input type="number" class="form-control" id="setting-input-3" name="reductionRabaisNavire" min="0" value="{{old('reductionRabaisNavire')}}">
 							@error("reductionRabaisNavire")
 							<span style="color:red">{{$message}}</span>
 
@@ -122,7 +122,7 @@
 
 					</div>
 					<div class="form-check form-switch mb-3">
-						<input class="form-check-input" type="checkbox" id="settings-switch-3" name="valider" checked>
+						<input class="form-check-input" type="checkbox" id="settings-switch-3" name="valider" checked value="{{old('valider')}}">
 						<label class="form-check-label" for="settings-switch-3">Valider</label>
 						@error("valider")
 						<span style="color:red">{{$message}}</span>

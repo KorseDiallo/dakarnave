@@ -19,7 +19,7 @@
 										<path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z" />
 										<circle cx="8" cy="4.5" r="1" />
 									</svg></span></label>
-							<input type="text" class="form-control" id="setting-input-1" name="ownerItem">
+							<input type="text" class="form-control" id="setting-input-1" name="ownerItem" value="{{old('ownerItem')}}">
 							@error("ownerItem")
 							<span style="color:red">{{$message}}</span>
 
@@ -31,7 +31,7 @@
 										<path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z" />
 										<circle cx="8" cy="4.5" r="1" />
 									</svg></span></label>
-							<input type="text" class="form-control" id="setting-input-1" name="dknvItem">
+							<input type="text" class="form-control" id="setting-input-1" name="dknvItem" value="{{old('dknvItem')}}">
 							@error("dknvItem")
 							<span style="color:red">{{$message}}</span>
 
@@ -69,7 +69,7 @@
 					<div class=" mb-3">
 
 						<label for="setting-input-3" class="form-label">Titre des élements</label>
-						<input type="text" class="form-control" id="setting-input-3" name="titreElement" min="0">
+						<input type="text" class="form-control" id="setting-input-3" name="titreElement" min="0" value="{{old('titreElement')}}">
 						
 						@error("titreElement")
 							<span style="color:red">{{$message}}</span>
@@ -88,7 +88,7 @@
 					<div class=" row mb-3">
 						<div class="col">
 							<label for="setting-input-3" class="form-label">Delai de livraison</label>
-							<input type="text" class="form-control" id="setting-input-3" name="tempLivraison">
+							<input type="text" class="form-control" id="setting-input-3" name="tempLivraison" value="{{old('tempLivraison')}}">
 							@error("tempLivraison")
 							<span style="color:red">{{$message}}</span>
 
@@ -96,7 +96,7 @@
 						</div>
 						<div class="col">
 							<label for="setting-input-3" class="form-label">Prix</label>
-							<input type="number" class="form-control" id="setting-input-3" name="prix" min="0">
+							<input type="number" class="form-control" id="setting-input-3" name="prix" min="0" value="{{old('prix')}}">
 							@error("prix")
 							<span style="color:red">{{$message}}</span>
 
@@ -108,7 +108,7 @@
 					<div class=" row mb-3">
 						<div class="col">
 							<label for="setting-input-3" class="form-label">Date signature Product Manager</label>
-							<input type="date" class="form-control" id="setting-input-3" name="dateSignatureProductManager">
+							<input type="date" class="form-control" id="setting-input-3" name="dateSignatureProductManager" value="{{old('dateSignatureProductManager')}}">
 							@error("dateSignatureProductManager")
 							<span style="color:red">{{$message}}</span>
 
@@ -116,7 +116,7 @@
 						</div>
 						<div class="col">
 							<label for="setting-input-3" class="form-label">Date signature Propriétaire</label>
-							<input type="date" class="form-control" id="setting-input-3" name="dateSignaturePropriétaire">
+							<input type="date" class="form-control" id="setting-input-3" name="dateSignaturePropriétaire" value="{{old('dateSignaturePropriétaire')}}">
 							@error("dateSignaturePropriétaire")
 							<span style="color:red">{{$message}}</span>
 
@@ -129,7 +129,7 @@
 					<div class=" row mb-3">
 						<div class="col">
 							<label for="setting-input-3" class="form-label">Remarque</label>
-							<input type="text" class="form-control" id="setting-input-3" name="remarque">
+							<input type="text" class="form-control" id="setting-input-3" name="remarque" value="{{old('remarque')}}">
 
 						</div>
 
@@ -138,11 +138,11 @@
 					</div>
 
 					<div class="form-check form-switch mb-3">
-						<input class="form-check-input" type="checkbox" id="settings-switch-3" name="valider" checked>
+						<input class="form-check-input" type="checkbox" id="settings-switch-3" name="valider" checked value="{{old('valider')}}">
 						<label class="form-check-label" for="settings-switch-3">Valider</label>
 					</div>
 
-					<button type="submit" class="btn app-btn-primary"> Creer une fiche</button>
+					<button type="submit" class="btn app-btn-primary"> Creer une fiche de travail</button>
 				</form>
 			</div><!--//app-card-body-->
 
