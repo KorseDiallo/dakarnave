@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Facture;
 use App\Models\Fiche_travail;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -19,7 +20,8 @@ return new class extends Migration
             $table->date("desamarrageNavire");
             $table->boolean("valider");
             $table->boolean("is_deleted")->default(false);
-            $table->foreignIdFor(Fiche_travail::class)->constrained()->onDelete('cascade');
+            // $table->foreignIdFor(Fiche_travail::class)->constrained()->onDelete('cascade');
+            $table->foreignIdFor(Facture::class)->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

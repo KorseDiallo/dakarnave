@@ -30,12 +30,12 @@
 
 					</select>
 				</div>
-				<div class="col-auto">
+				<!-- <div class="col-auto">
 					<a class="btn app-btn-secondary" href="/factures/ajout-facture">
 
 						Ajouter une facture
 					</a>
-				</div>
+				</div> -->
 			</div><!--//row-->
 		</div><!--//table-utilities-->
 	</div><!--//col-auto-->
@@ -85,6 +85,7 @@
 								<td class="cell"><span class="note">{{$factureValider->detailTravaux}}</span></td>
 								<td class="cell"><span class="note">{{$factureValider->montantBrut}}</span></td>
 								<td class="cell"><a class="btn btn-success" href="{{route('fiches_travails.create', $factureValider->id)}}" style="color:white;">Créer Un Fild Order</a></td>
+								<td class="cell"><a class="btn btn-success" href="{{route('memos.create', $factureValider->id)}}" style="color:white;">Créer un memo</a></td>
 								<td class="cell"><a class="btn btn-success" href="{{route('factures.show',$factureValider->id )}}" style="color:white;">Voir</a></td>
 								<td class="cell"><a class="btn btn-warning" href="{{route('factures.download', $factureValider->id )}}" style="color:white;">Telecharger</a></td>
 

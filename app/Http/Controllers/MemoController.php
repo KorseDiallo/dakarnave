@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\MemoRequest;
+use App\Models\Facture;
 use App\Models\Fiche_travail;
 use App\Models\Memo;
 use Illuminate\Http\Request;
@@ -45,22 +46,22 @@ class MemoController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(Fiche_travail $ficheTravail)
+    public function create(Facture $facture)
     {
-        return view('memos.create',compact('ficheTravail'));
+        return view('memos.create',compact('facture'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(MemoRequest $request,Fiche_travail $ficheTravail)
+    public function store(MemoRequest $request,Facture $facture)
     {
         $memo = new Memo();
         $memo->amarrageNavire=$request->amarrageNavire;
         $memo->owner=$request->owner;
         $memo->desamarrageNavire=$request->desamarrageNavire;
         $memo->valider=$request->has('valider') ? 1 : 0;
-        $memo->fiche_travail_id=$ficheTravail->id; 
+        $memo->facture_id=$facture->id; 
         $memo->save();
         return redirect()->route('memos.index')->with('success', 'Mémo ajouté avec succès.');
     }
@@ -79,7 +80,7 @@ class MemoController extends Controller
         
         $pdf = PDF::loadView('download.memo', compact('memo'));
       
-        return $pdf->download('memo-'. $memo->ficheDetravail->facture->client->nom.'.pdf');
+        return $pdf->download('memo-'. $memo->facture->client->nom.'.pdf');
     }
     /**
      * Show the form for editing the specified resource.

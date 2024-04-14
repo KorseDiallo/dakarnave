@@ -130,8 +130,10 @@ Route::delete('/fiches_travails/{ficheTravail}', [FicheTravailController::class,
 /*routes pour memos*/
 
 Route::get('/memos', [MemoController::class, 'index'])->name('memos.index');
-Route::get('/memos/create/{ficheTravail}', [MemoController::class, 'create'])->name('memos.create');
-Route::post('/memos/{ficheTravail}', [MemoController::class, 'store'])->name('memos.store');
+// Route::get('/memos/create/{ficheTravail}', [MemoController::class, 'create'])->name('memos.create');
+// Route::post('/memos/{ficheTravail}', [MemoController::class, 'store'])->name('memos.store');
+Route::get('/memos/create/{facture}', [MemoController::class, 'create'])->name('memos.create');
+Route::post('/memos/{facture}', [MemoController::class, 'store'])->name('memos.store');
 Route::post('/memos/valider_memo/{memo}', [MemoController::class, 'validerMemo'])->name('memos.valider');
 Route::post('/memos/archiver/{memo}', [MemoController::class, 'archiver'])->name('memos.archiver');
 Route::post('/memos/desarchiver/{memo}', [MemoController::class, 'desarchiver'])->name('memos.desarchiver');

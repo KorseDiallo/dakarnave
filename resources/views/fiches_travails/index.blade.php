@@ -75,7 +75,7 @@
 								<td class="cell"><span class="truncate">{{$ficheTravailValider->dknvItem}}</span></td>
 								<td class="cell">{{$ficheTravailValider->titreElement}}</td>
 
-								<td class="cell"><a class="btn btn-success" href="{{route('memos.create', $ficheTravailValider->id)}}" style="color:white;">Créer un memo</a></td>
+								<!-- <td class="cell"><a class="btn btn-success" href="{{route('memos.create', $ficheTravailValider->id)}}" style="color:white;">Créer un memo</a></td> -->
 								<td class="cell"><a class="btn btn-success" href="{{route('fiches_travails.show',$ficheTravailValider->id) }}" style="color:white;">Voir</a></td>
 								<td class="cell"><a class="btn btn-warning" href="{{route('fiches_travails.download', $ficheTravailValider->id )}}" style="color:white;">Telecharger</a></td>
 

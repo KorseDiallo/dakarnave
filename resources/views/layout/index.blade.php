@@ -290,7 +290,7 @@
 							<div id="submenu-3" class="collapse submenu submenu-3" data-bs-parent="#menu-accordion">
 								<ul class="submenu-list list-unstyled">
 									<li class="submenu-item"><a class="submenu-link" href="{{route('memos.index')}}">Listes memos</a></li>
-									<li class="submenu-item"><a class="submenu-link" href="{{route('fiches_travails.index')}}">Ajouter memo</a></li>
+									<li class="submenu-item"><a class="submenu-link" href="{{route('factures.index')}}">Ajouter memo</a></li>
 
 								</ul>
 							</div>

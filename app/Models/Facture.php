@@ -39,4 +39,9 @@ class Facture extends Model
     {
         return $this->hasMany(Fiche_travail::class);
     }
+
+    public function memos()
+    {
+        return $this->hasMany(Memo::class);
+    }
 }

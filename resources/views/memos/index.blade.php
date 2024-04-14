@@ -30,12 +30,12 @@
 
 					</select>
 				</div>
-				<div class="col-auto">
+				<!-- <div class="col-auto">
 					<a class="btn app-btn-secondary" href="#">
 
 						Ajouter Memo
 					</a>
-				</div>
+				</div> -->
 			</div><!--//row-->
 		</div><!--//table-utilities-->
 	</div><!--//col-auto-->
